@@ -3,12 +3,15 @@
 import React, { Component } from 'react';
 import '../App.css';
 
+
 class Address extends Component {
     constructor(props){
         super(props);
+        console.log('TEST PROPS' , props);
+
         this.state = {
-            firstName: this.props.firstName,
-            lastName: "",
+            firstName: this.props.address[0].firstName,
+            lastName: this.props.address[0].lastName,
             streetAdr: "",
             city: "",
             state:"",

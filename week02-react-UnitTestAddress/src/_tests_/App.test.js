@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App  from './App';
-import ElfHeader from './components/ElfHeader';
-import Address from './components/Address';
+import App  from '../App';
+import ElfHeader from '../components/ElfHeader';
+import Address from '../components/Address';
 import {shallow} from 'enzyme';
-
+import addresses from '../address-list';
 
 describe('React JestSuite', function () {
+
+
+    const getLast = (wrapper) => {
+        const ninep = wrapper.find('p').last().debug();
+        console.log(ninep);
+    };
+
+    const getFirst = (wrapper) => {
+        const ninep = wrapper.find('p').first().debug();
+        console.log(ninep);
+    };
+
 
     it('renders without our App component crashing', () => {
         const div = document.createElement('div');
@@ -28,14 +40,21 @@ describe('React JestSuite', function () {
     });
 
     it('renders and displays the word First Name', () => {
-        const wrapper = shallow(<Address />);
-        const fName = <p className="App-intro">First Name: </p>;
+
+        // passes in addresses object
+        const wrapper = shallow(<Address address={addresses}/>);
+
+        // sets what rendered element should look like
+        const fName = <p className="App-intro">First Name: unknown</p>;
+        // getFirst(wrapper);
+
+        // compare the reference to what appears on page
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
     it('renders and displays the word Last Name', () => {
-        const wrapper = shallow(<Address />);
-        const lName = <p className="App-intro">Last Name: </p>;
+        const wrapper = shallow(<Address address={addresses}/>);
+        const lName = <p className="App-intro">Last Name: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
@@ -53,14 +72,14 @@ describe('React JestSuite', function () {
     });
 
     it('renders button click message to show First name of Carly', () => {
-        const wrapper = shallow(<Address />);
+        const wrapper = shallow(<Address address={addresses}/>);
         const fName = <p className="App-intro">First Name: Carly</p>;
         wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
     it('renders button click message to show Last name of bar', () => {
-        const wrapper = shallow(<Address />);
+        const wrapper = shallow(<Address address={addresses}/>);
         const lName = <p className="App-intro">Last Name: bar</p>;
         wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
