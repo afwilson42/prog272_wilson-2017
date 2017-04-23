@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import Address from "./components/Address";
-import addresses from './address-list';
 import ElfHeader from "./components/ElfHeader";
+import addresses from "./address-list";
+
 
 
 ReactDOM.render(
     <div>
         <ElfHeader />
         <App />
-        <Address addressList={addresses}/>
+        <Address address={addresses}/>
     </div>,
     document.getElementById('root')
-);
-
+)
+;
