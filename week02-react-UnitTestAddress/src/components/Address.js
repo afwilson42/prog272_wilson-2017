@@ -2,33 +2,41 @@
 
 import React, { Component } from 'react';
 import '../App.css';
+import addresses from './address-list'
 
 
 class Address extends Component {
     constructor(props){
         super(props);
+
         console.log('TEST PROPS' , props);
 
+        const address = this.props.address[0];
+
         this.state = {
-            firstName: this.props.address[0].firstName,
-            lastName: this.props.address[0].lastName,
-            streetAdr: "",
-            city: "",
-            state:"",
-            zip:"",
-            phone: ""
+            firstName: this.props.address.firstName,
+            lastName: this.props.address.lastName,
+            streetAdr: this.props.address.streetAdr,
+            city: this.props.address.city,
+            state:this.props.address.state,
+            zip:this.props.address.zip,
+            phone: this.props.address.phone
         }
     }
 
     setAddress = () => {
+
+        const address = this.props.address[1];
         this.setState({
-            firstName: 'Carly',
-            lastName: 'bar',
-            streetAdr: 'PO Box 40600',
-            city: 'Olympia',
-            usState:'WA',
-            zip: '98504-0600',
-            phone: '(360) 786-7848'
+
+
+            firstName: this.props.address.firstName,
+            lastName: this.props.address.lastName,
+            streetAdr: this.props.address.streetAdr,
+            city: this.props.address.city,
+            state:this.props.address.state,
+            zip:this.props.address.zip,
+            phone: this.props.address.phone
 
         })
     };
@@ -42,9 +50,24 @@ class Address extends Component {
                 </p>
 
                 <p className="App-intro">
-                    Last Name: {this.state.lastName}
+                    Last Name: {this.state.streetAdr}
                 </p>
 
+                <p className="App-intro">
+                    Last Name: {this.state.lastName}
+                </p>
+                <p className="App-intro">
+                    Last Name: {this.state.city}
+                </p>
+                <p className="App-intro">
+                    Last Name: {this.state.usState}
+                </p>
+                <p className="App-intro">
+                    Last Name: {this.state.zip}
+                </p>
+                <p className="App-intro">
+                    Last Name: {this.state.phone}
+                </p>
 
                 <button onClick={this.setAddress} className="setAdr">Set Address</button>
             </div>
