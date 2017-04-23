@@ -7,13 +7,6 @@ class App extends Component {
         super();
         this.state = {
             nine: '0',
-            firstName: "",
-            lastName: "",
-            streetAdr: "",
-            city: "",
-            state:"",
-            zip:"",
-            phone: ""
         }
     }
 

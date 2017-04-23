@@ -2,30 +2,43 @@
 
 import React, { Component } from 'react';
 import '../App.css';
+import addresses from './address-list';
+
 
 class Address extends Component {
     constructor(props){
         super(props);
+        // const address = this.props.addressList[0];
         this.state = {
+            // firstName: this.props.address[0].firstName,
+            // lastName: this.props.address[0].lastName,
+            // treetAdr: this.props.address[0].streetAdr,
+            // city: this.props.address[0].city,
+            // usState: this.props.address[0].usState,
+            // zip: this.props.address[0].zip,
+            //phone: this.props.address[0].phone
             firstName: this.props.firstName,
-            lastName: "",
-            streetAdr: "",
-            city: "",
-            state:"",
-            zip:"",
-            phone: ""
+            lastName: this.props.lastName,
+            streetAdr: this.props.streetAdr,
+            city: this.props.city,
+            state: this.props.state,
+            zip: this.props.zip,
+            phone: this.props.phone
         }
     }
 
     setAddress = () => {
+        // const address = this.props.addressList[1];
+        console.log('TEST PROPS' , props);
+
         this.setState({
-            firstName: 'Carly',
-            lastName: 'bar',
-            streetAdr: 'PO Box 40600',
-            city: 'Olympia',
-            usState:'WA',
-            zip: '98504-0600',
-            phone: '(360) 786-7848'
+            firstName: this.props.address[1].firstName,
+            lastName: this.props.address[1].lastName,
+            streetAdr: this.props.address[1].streetAdr,
+            city: this.props.address[1].city,
+            usState: this.props.address[1].usState,
+            zip: this.props.address[1].zip,
+            phone: this.props.address[1].phone
 
         })
     };
@@ -40,6 +53,21 @@ class Address extends Component {
 
                 <p className="App-intro">
                     Last Name: {this.state.lastName}
+                </p>
+                <p className="App-intro">
+                    Street address: {this.state.streetAdr}
+                </p>
+                <p className="App-intro">
+                    City: {this.state.city}
+                </p>
+                <p className="App-intro">
+                    State: {this.state.usState}
+                </p>
+                <p className="App-intro">
+                    Zip Code: {this.state.zip}
+                </p>
+                <p className="App-intro">
+                    Phone Number: {this.state.phone}
                 </p>
 
 
