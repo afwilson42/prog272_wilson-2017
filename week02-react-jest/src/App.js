@@ -8,14 +8,31 @@ class App extends Component {
         this.state = {
             nine: '0',
             firstName: "",
-            lastName: ""
+            lastName: "",
+            streetAdr: "",
+            city: "",
+            usState:"",
+            zip:"",
+            phone: ""
         }
     }
 
-    bar = () => {
-        this.setState({nine: '9', firstName: "foo", lastName: "bar"});
+    getNine = () => {
+        this.setState({nine: '9'});
     }
 
+    setAddress = () => {
+         this.setState({
+             firstName: "Suzan",
+             lastName: "DelBene",
+             streetAdr: "22121 17th Ave SE #220",
+             city: "Bothell",
+             usState: "WA",
+             zip: "98021",
+             phone: "(425)485-0085"
+
+         })
+    };
 
     render() {
         return (
@@ -29,16 +46,38 @@ class App extends Component {
                 </p>
 
                 <p className="App-intro">
-                    firstName: {this.state.firstName}
+                    First Name: {this.state.firstName}
                 </p>
 
                 <p className="App-intro">
-                    lastName: {this.state.lastName}
+                    Last Name: {this.state.lastName}
+                </p>
+
+                <p className="App-intro">
+                    Street Address: {this.state.streetAdr}
+                </p>
+
+                <p className="App-intro">
+                    City: {this.state.city}
+                </p>
+
+                <p className="App-intro">
+                    State: {this.state.usState}
+                </p>
+
+                <p className="App-intro">
+                    Zip Code: {this.state.zip}
+                </p>
+
+                <p className="App-intro">
+                    Phone Number: {this.state.phone}
                 </p>
 
 
 
-                <button onClick = {this.bar} className="elf">Get Nine</button>
+                <button onClick = {this.getNine} className="elf">Get Nine</button>
+
+                <button onClick={this.setAddress} className="setAdr">Set Address</button>
             </div>
         );
     }
