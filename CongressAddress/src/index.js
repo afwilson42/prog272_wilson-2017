@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+import './css/index.css';
 import Address from "./components/Address";
 import addresses from './address-list';
 import ElfHeader from "./components/ElfHeader";

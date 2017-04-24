@@ -1,43 +1,15 @@
+/**
+ * Address component tests.
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App  from '../App';
-import ElfHeader from '../components/ElfHeader';
 import Address from '../components/Address';
 import {shallow} from 'enzyme';
 import addresses from '../address-list';
 
-describe('React JestSuite', function () {
 
-
-    const getLast = (wrapper) => {
-        const ninep = wrapper.find('p').last().debug();
-        console.log(ninep);
-    };
-
-    const getFirst = (wrapper) => {
-        const ninep = wrapper.find('p').first().debug();
-        console.log(ninep);
-    };
-
-
-    it('renders without our App component crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<App />, div);
-    });
-
-    //element rendering tests
-
-     it('renders and reads H1 text', () => {
-        const wrapper = shallow(<ElfHeader />);
-        const welcome = <h2>Welcome to Prog 272</h2>;
-        expect(wrapper.contains(welcome)).toEqual(true);
-    });
-
-     it('renders and displays the word Nine', () => {
-        const wrapper = shallow(<App />);
-        const nine = <p className="App-intro">Nine: 0</p>;
-        expect(wrapper.contains(nine)).toEqual(true);
-    });
+describe('React CongressAddress Address Suite', function () {
 
     it('renders and displays the word First Name', () => {
 
@@ -52,6 +24,7 @@ describe('React JestSuite', function () {
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
+
     it('renders and displays the word Last Name', () => {
         const wrapper = shallow(<Address address={addresses}/>);
         const lName = <p className="App-intro">Last Name: unknown</p>;
@@ -59,18 +32,7 @@ describe('React JestSuite', function () {
     });
 
 
-
-
-
-// Button click tests
-
-    it('renders button click message to show 9', () => {
-        const wrapper = shallow(<App />);
-        const nineSign = <p className="App-intro">Nine: 9</p>;
-        wrapper.find('button.elf').simulate('click');
-        expect(wrapper.contains(nineSign)).toEqual(true);
-    });
-
+    // button rendering tests
     it('renders button click message to show First name of Carly', () => {
         const wrapper = shallow(<Address address={addresses}/>);
         const fName = <p className="App-intro">First Name: Carly</p>;
@@ -85,6 +47,4 @@ describe('React JestSuite', function () {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
-
-
-});
+});// end describe

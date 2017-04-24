@@ -1,7 +1,7 @@
 /* Created by Andrew Wilson on 04/17/2017 ...*/
 
 import React, { Component } from 'react';
-import '../App.css';
+import '../css/App.css';
 import addresses from './address-list'
 
 
@@ -11,7 +11,7 @@ class Address extends Component {
 
         console.log('TEST PROPS' , props);
 
-        const address = this.props.address[0];
+        const address = this.props.addresses[0];
 
         this.state = {
             firstName: this.props.address.firstName,

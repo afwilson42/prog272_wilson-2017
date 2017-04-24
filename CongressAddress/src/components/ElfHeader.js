@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../Smallpie.svg';
-import '../App.css';
+import logo from '../images/Smallpie.svg';
+import '../css/App.css';
 
 
 class ElfHeader extends Component {
