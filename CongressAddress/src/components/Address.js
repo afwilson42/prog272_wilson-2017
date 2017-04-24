@@ -1,42 +1,48 @@
-/* Created by Andrew Wilson on 04/17/2017 ...*/
+/* Address component file for CongressAddress
+Created by Andrew Wilson on 04/17/2017
+Updated by Andrew Wilson on 04/23/2017
+-- added props for initial state and setting state button
+-- added full address information for senator             ...*/
 
 import React, { Component } from 'react';
 import '../css/App.css';
-import addresses from './address-list'
+
 
 
 class Address extends Component {
     constructor(props){
         super(props);
 
-        console.log('TEST PROPS' , props);
+        // console.log('TEST PROPS' , props);
+        // console.log(this.props.addressList[1]);
 
-        const address = this.props.addresses[0];
 
+        // initialize the state to items in addressList index 0
         this.state = {
-            firstName: this.props.address.firstName,
-            lastName: this.props.address.lastName,
-            streetAdr: this.props.address.streetAdr,
-            city: this.props.address.city,
-            state:this.props.address.state,
-            zip:this.props.address.zip,
-            phone: this.props.address.phone
+            firstName: this.props.addressList[0].firstName,
+            lastName: this.props.addressList[0].lastName,
+            streetAdr: this.props.addressList[0].streetAdr,
+            city: this.props.addressList[0].city,
+            usState: this.props.addressList[0].usState,
+            zip:this.props.addressList[0].zip,
+            phone: this.props.addressList[0].phone
         }
     }
 
+    // set address button function
     setAddress = () => {
 
-        const address = this.props.address[1];
+        // set the state to items in addressList index 1
         this.setState({
 
 
-            firstName: this.props.address.firstName,
-            lastName: this.props.address.lastName,
-            streetAdr: this.props.address.streetAdr,
-            city: this.props.address.city,
-            state:this.props.address.state,
-            zip:this.props.address.zip,
-            phone: this.props.address.phone
+            firstName: this.props.addressList[1].firstName,
+            lastName: this.props.addressList[1].lastName,
+            streetAdr: this.props.addressList[1].streetAdr,
+            city: this.props.addressList[1].city,
+            usState: this.props.addressList[1].usState,
+            zip:this.props.addressList[1].zip,
+            phone: this.props.addressList[1].phone
 
         })
     };
@@ -50,23 +56,23 @@ class Address extends Component {
                 </p>
 
                 <p className="App-intro">
-                    Last Name: {this.state.streetAdr}
+                    Last Name: {this.state.lastName}
                 </p>
 
                 <p className="App-intro">
-                    Last Name: {this.state.lastName}
+                    Street Address: {this.state.streetAdr}
                 </p>
                 <p className="App-intro">
-                    Last Name: {this.state.city}
+                    City: {this.state.city}
                 </p>
                 <p className="App-intro">
-                    Last Name: {this.state.usState}
+                    State: {this.state.usState}
                 </p>
                 <p className="App-intro">
-                    Last Name: {this.state.zip}
+                    Zip Code: {this.state.zip}
                 </p>
                 <p className="App-intro">
-                    Last Name: {this.state.phone}
+                    Phone Number: {this.state.phone}
                 </p>
 
                 <button onClick={this.setAddress} className="setAdr">Set Address</button>
