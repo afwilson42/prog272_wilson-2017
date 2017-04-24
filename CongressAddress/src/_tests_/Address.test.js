@@ -12,8 +12,6 @@ describe('React CongressAddress Address Suite', function () {
 
     it('renders and displays the word First Name', () => {
 
-
-
         // passes in addresses object
         const wrapper = shallow(<Address addressList={addresses} />);
 
@@ -71,6 +69,12 @@ describe('React CongressAddress Address Suite', function () {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
+    it('renders and displays Web Address of Unknown', () => {
+        const wrapper = shallow(<Address addressList={addresses}/>);
+        const lName = <p className="App-intro">Web Address: unknown</p>;
+        expect(wrapper.contains(lName)).toEqual(true);
+    });
+
 //=================================================================================================
 
     // button rendering tests
@@ -123,6 +127,13 @@ describe('React CongressAddress Address Suite', function () {
     it('renders button click message to show Phone Number of (425)485-0085', () => {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Phone Number: (425)485-0085</p>;
+        wrapper.find('button.setAdr').simulate('click');
+        expect(wrapper.contains(lName)).toEqual(true);
+    });
+
+    it('renders button click message to show Web Address of "https://delbene.house.gov/"', () => {
+        const wrapper = shallow(<Address addressList={addresses}/>);
+        const lName = <p className="App-intro">Web Address: https://delbene.house.gov/</p>;
         wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });

@@ -25,7 +25,8 @@ class Address extends Component {
             city: this.props.addressList[0].city,
             usState: this.props.addressList[0].usState,
             zip:this.props.addressList[0].zip,
-            phone: this.props.addressList[0].phone
+            phone: this.props.addressList[0].phone,
+            web: this.props.addressList[0].web
         }
     }
 
@@ -42,8 +43,8 @@ class Address extends Component {
             city: this.props.addressList[1].city,
             usState: this.props.addressList[1].usState,
             zip:this.props.addressList[1].zip,
-            phone: this.props.addressList[1].phone
-
+            phone: this.props.addressList[1].phone,
+            web: this.props.addressList[1].web
         })
     };
 
@@ -73,6 +74,10 @@ class Address extends Component {
                 </p>
                 <p className="App-intro">
                     Phone Number: {this.state.phone}
+                </p>
+
+                <p className="App-intro">
+                    Web Address: {this.state.web}
                 </p>
 
                 <button onClick={this.setAddress} className="setAdr">Set Address</button>

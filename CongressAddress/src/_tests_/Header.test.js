@@ -2,7 +2,6 @@
  * unit tests for header .
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ElfHeader from '../components/ElfHeader';
 import {shallow} from 'enzyme';
 

@@ -14,7 +14,8 @@ const addresses = [
         city: unknown,
         usState:unknown,
         zip: unknown,
-        phone: unknown
+        phone: unknown,
+        web: unknown
     },
 
     {
@@ -24,7 +25,8 @@ const addresses = [
         city: "Bothell",
         usState: "WA",
         zip: "98021",
-        phone: "(425)485-0085"
+        phone: "(425)485-0085",
+        web: "https://delbene.house.gov/"
     }
 ];
 
