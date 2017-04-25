@@ -13,13 +13,16 @@ class AddressShow extends Component {
     constructor(props){
         super(props);
 
-        // console.log('TEST PROPS' , props);
-        // console.log(this.props.AddressShowList[1]);
+        console.log('TEST PROPS' , props);
+
+        if(!this.props.address){
+            throw new Error ("No props in Addresses");
+        }
+        console.log(props);
 
 
-        // initialize the state to items in addressList index 0
 
-    }
+    }// end constructor
 
     // set AddressShow button function
     //setAddress = () => {
