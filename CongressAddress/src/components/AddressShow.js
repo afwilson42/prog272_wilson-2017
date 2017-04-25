@@ -22,7 +22,7 @@ class AddressShow extends Component {
     }
 
     // set AddressShow button function
-    setAddress = () => {
+    //setAddress = () => {
 
         // set the state to items in addressList index 1
         //this.setState({
@@ -37,7 +37,7 @@ class AddressShow extends Component {
             //phone: this.props.AddressShowList[1].phone,
             //web: this.props.addressList[1].web
         // })
-    };
+   // };
 
     render() {
         return (
@@ -55,7 +55,7 @@ class AddressShow extends Component {
                     Street Address: {this.props.address.streetAdr}
                 </p>
                 <p className="App-intro">
-                    City: {this.state.city}
+                    City: {this.props.address.city}
                 </p>
                 <p className="App-intro">
                     State: {this.props.address.usState}
