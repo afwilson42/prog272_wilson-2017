@@ -1,16 +1,17 @@
 /**
  * Address component tests.
  */
-/*
+
 import React from 'react';
 import Address from '../components/Address';
 import {shallow} from 'enzyme';
 import addresses from '../address-list';
+import AddressShow from '../components/AddressShow';
 
 
 describe('React CongressAddress Address Suite', function () {
 
-    it('renders and displays the word First Name', () => {
+    it.only('renders and displays the word First Name', () => {
 
         // passes in addresses object
         const wrapper = shallow(<Address addressList={addresses} />);
@@ -131,6 +132,7 @@ describe('React CongressAddress Address Suite', function () {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
+    it('renders button click message to show Web Address of "https://delbene.house.gov/"', () => {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Web Address: https://delbene.house.gov/</p>;
         wrapper.find('button.setAdr').simulate('click');
@@ -139,4 +141,3 @@ describe('React CongressAddress Address Suite', function () {
 
 
 });// end describe
-*/
