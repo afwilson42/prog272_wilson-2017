@@ -1,48 +1,45 @@
 /* AddressShow Show component file for CongressAddress
-Created by Andrew Wilson on 04/17/2017
-Updated by Andrew Wilson on 04/23/2017
--- added props for initial state and setting state button
--- added full address information for senator             ...*/
+ Created by Andrew Wilson on 04/17/2017
+ Updated by Andrew Wilson on 04/23/2017
+ -- added props for initial state and setting state button
+ -- added full address information for senator             ...*/
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/App.css';
 
 
-
 class AddressShow extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-
+        this.quiet = true;
         console.log('TEST PROPS' , props);
-
-        if(!this.props.address){
-            throw new Error ("No props in Addresses");
+        if (!this.props.address)
+        {
+            throw new Error("No props in Addresses");
         }
-        console.log(props);
+
+        this.log(props);
+
+    }
 
 
+    log(message, message2 = '', message3 = '') {
 
-    }// end constructor
+        if (!this.quiet) {
+            const label = this.constructor.name + ': ';
+            console.log(label, message, message2, message3);
+        }
+    }// end log
+
+// end constructor
 
     // set AddressShow button function
     //setAddress = () => {
 
-        // set the state to items in addressList index 1
-        //this.setState({
 
-
-            //firstName: this.props.AddressShowList[1].firstName,
-            //lastName: this.props.AddressShowList[1].lastName,
-           // streetAdr: this.props.AddressShowList[1].streetAdr,
-            //city: this.props.AddressShowList[1].city,
-           // usState: this.props.AddressShowList[1].usState,
-            //zip:this.props.AddressShowList[1].zip,
-            //phone: this.props.AddressShowList[1].phone,
-            //web: this.props.addressList[1].web
-        // })
-   // };
 
     render() {
+        this.log("RENDER");
         return (
             <div className="App">
 

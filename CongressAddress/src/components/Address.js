@@ -13,15 +13,11 @@ class Address extends Component {
     constructor(){
         super();
 
-        // console.log('TEST PROPS' , props);
-        // console.log(this.props.addressList[1]);
-
-
         // initialize the state to items in addressList index 0
-        const index = 0;
+        this.addressIndex = 0;
         this.state = {
 
-            address: addresses[index]
+            address: addresses[this.addressIndex]
         }
     }
 
