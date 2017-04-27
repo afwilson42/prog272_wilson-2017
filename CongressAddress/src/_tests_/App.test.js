@@ -7,13 +7,13 @@ import {shallow} from 'enzyme';
 describe('React JestSuite', function () {
 
 
-    const getLast = (wrapper) => {
-        const ninep = wrapper.find('p').last().debug();
+    const getLast = (wrapper, element) => {
+        const ninep = wrapper.find(element).last().debug();
         console.log(ninep);
     };
 
-    const getFirst = (wrapper) => {
-        const ninep = wrapper.find('p').first().debug();
+    const getFirst = (wrapper, element) => {
+        const ninep = wrapper.find(element).first().debug();
         console.log(ninep);
     };
 

@@ -4,52 +4,42 @@
 
 import React from 'react';
 import Address from '../components/Address';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 import addresses from '../address-list';
+import AddressShow from '../components/AddressShow';
 
 
+describe('React AddressShow Suite', function () {
 
-describe('React Address Test Suite', function () {
+    let address = {};
+    let quiet = true;
 
+    beforeEach(function() {
+        address = addresses[0];
+        }
+    );
 
-
-    var quiet = true;
-
-    /*
-     * @param {object} wrapper - Container for a bunch of HTML nodes
-     * @param {number} index - Index of HTML element.
-     * @param {boolean} talkToMe - Speak even if quiet is true
-     */
-    const getIndex = function(wrapper, index, talkToMe) {
-        if (!quiet || talkToMe) {
-            const ninep = wrapper.find('div#addressShowRender').childAt(index).debug();
-            console.log('NINEP:', ninep);
+    const getLast = (wrapper) =>{
+        const ninep = wrapper.find('p').last().debug();
+        if(!quiet) {
+            console.log(ninep);
         }
     };
 
-    const defaultFieldTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}  />);
-        const welcome = <p className="App-intro">{name}</p>;
-        getIndex(wrapper, index, talkToMe);
-        expect(wrapper.contains(welcome)).toEqual(true);
-    };
-
-    const afterClickFieldTest = (name, index, talkToMe) => {
-        const wrapper = mount(<Address address={address}/>);
-        const patty = <p className="App-intro">{name}</p>;
-        wrapper.find('button#setAddress').simulate('click');
-        getIndex(wrapper, index, talkToMe);
-        expect(wrapper.contains(patty)).toEqual(true);
+    const getFirst = (wrapper) =>{
+        const ninep = wrapper.find('p').first().debug();
+        if(!quiet) {
+            console.log(ninep);
+        }
     };
 
 
-   it('renders and displays the word First Name', () => {
+    it('renders and displays the word First Name', () => {
 
         // passes in addresses object
+        const wrapper = shallow(<AddressShow address={address} />);
 
-        const wrapper = mount(<Address addressList={addresses} />);
-
-
+        //getFirst(wrapper, 'p');
         // sets what rendered element should look like
         const fName = <p className="App-intro">First Name: unknown</p>;
 
@@ -59,69 +49,69 @@ describe('React Address Test Suite', function () {
     });
 
   
-   /* it('renders and displays Last Name of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+    it('renders and displays Last Name of Unknown', () => {
+        const wrapper = shallow(<AddressShow address={address}/>);
+        // getFirst(wrapper, 'p');
         const lName = <p className="App-intro">Last Name: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays Street Address of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Street Address: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays City of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">City: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays State of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">State: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Zip Code of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Zip Code: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Zip Code of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Zip Code: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Phone Number of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Phone Number: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Web Address of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Web Address: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
-    }); */
+    });
 
 //=================================================================================================
 
-    // button rendering tests
+   /* // button rendering tests
     it('renders button click message to show First name of Suzan', () => {
-        const wrapper = mount(<Address addressList={addresses}/>);
+        const wrapper = shallow(<Address addressList={addresses}/>);
         const fName = <p className="App-intro">First Name: Suzan</p>;
-        wrapper.find('button#getAddress').simulate('click');
-        getIndex(wrapper,1,true);
+        wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
-   /* it('renders button click message to show Last name of DelBene', () => {
+    it('renders button click message to show Last name of DelBene', () => {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Last Name: DelBene</p>;
         wrapper.find('button.setAdr').simulate('click');
@@ -165,9 +155,14 @@ describe('React Address Test Suite', function () {
         const lName = <p className="App-intro">Phone Number: (425)485-0085</p>;
         wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
+    });
+
+    it('renders button click message to show Web Address of "https://delbene.house.gov/"', () => {
+        const wrapper = shallow(<Address addressList={addresses}/>);
+        const lName = <p className="App-intro">Web Address: https://delbene.house.gov/</p>;
+        wrapper.find('button.setAdr').simulate('click');
+        expect(wrapper.contains(lName)).toEqual(true);
     }); */
-
-
 
 
 });// end describe
