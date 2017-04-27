@@ -12,13 +12,14 @@ class AddressShow extends Component {
     constructor(props) {
         super(props);
         this.quiet = true;
-        console.log('TEST PROPS' , props);
+        this.log('CONSTRUCTOR', this.props.address);
+        /*console.log('TEST PROPS' , props);
         if (!this.props.address)
         {
             throw new Error("No props in Addresses");
         }
 
-        this.log(props);
+        this.log(props); */
 
     }// end constructor
 
@@ -34,7 +35,7 @@ class AddressShow extends Component {
 
 
     render() {
-        this.log("RENDER");
+        this.log("SHOW ADDRESS RENDER");
         return (
             <div id="addressShowRender" className="App">
 

@@ -12,6 +12,8 @@ import AddressShow from './AddressShow';
 class Address extends Component {
     constructor(){
         super();
+        this.quiet = true;
+
 
         // initialize the state to items in addressList index 0
         this.addressIndex = 0;
@@ -19,7 +21,9 @@ class Address extends Component {
 
             address: addresses[this.addressIndex]
         }
-    }
+    }// end constructor
+
+
 
     // set address button function
     setAddress = () => {
@@ -34,6 +38,8 @@ class Address extends Component {
     };
 
     render() {
+
+
         return (
             <div className="App">
                 <AddressShow address={this.state.address}
