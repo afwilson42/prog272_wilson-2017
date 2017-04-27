@@ -9,6 +9,7 @@ import {shallow} from 'enzyme';
 import addresses from '../address-list';
 
 
+
 describe('React CongressAddress Address Suite', function () {
 
     it.only('renders and displays the word First Name', () => {
@@ -18,7 +19,7 @@ describe('React CongressAddress Address Suite', function () {
         console.log(addresses[0].firstName);
 
         // passes in addresses object
-        const wrapper = shallow(<Address address={addresses} />);
+        const wrapper = shallow(<Address address={addresses}/>);
 
         // sets what rendered element should look like
         const fName = <p className="App-intro">First Name: unknown</p>;
