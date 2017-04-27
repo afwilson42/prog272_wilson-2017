@@ -1,19 +1,50 @@
 /**
  * Address component tests.
  */
-/*
+
 import React from 'react';
 import Address from '../components/Address';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import addresses from '../address-list';
 
 
-describe('React CongressAddress Address Suite', function () {
+describe('React Address Test Suite', function () {
 
-    it('renders and displays the word First Name', () => {
+
+    var quiet = true;
+
+    /*
+     * @param {object} wrapper - Container for a bunch of HTML nodes
+     * @param {number} index - Index of HTML element.
+     * @param {boolean} talkToMe - Speak even if quiet is true
+     */
+    const getIndex = function(wrapper, index, talkToMe) {
+        if (!quiet || talkToMe) {
+            const ninep = wrapper.find('div#addressShowRender').childAt(index).debug();
+            console.log('NINEP:', ninep);
+        }
+    };
+
+    const defaultFieldTest = (name, index, talkToMe) => {
+        const wrapper = mount(<Address address={address}  />);
+        const welcome = <p className="App-intro">{name}</p>;
+        getIndex(wrapper, index, talkToMe);
+        expect(wrapper.contains(welcome)).toEqual(true);
+    };
+
+    const afterClickFieldTest = (name, index, talkToMe) => {
+        const wrapper = mount(<Address address={address}/>);
+        const patty = <p className="App-intro">{name}</p>;
+        wrapper.find('button#setAddress').simulate('click');
+        getIndex(wrapper, index, talkToMe);
+        expect(wrapper.contains(patty)).toEqual(true);
+    };
+
+
+   it('renders and displays the word First Name', () => {
 
         // passes in addresses object
-        const wrapper = shallow(<Address addressList={addresses} />);
+        const wrapper = mount(<Address addressList={addresses} />);
 
         // sets what rendered element should look like
         const fName = <p className="App-intro">First Name: unknown</p>;
@@ -24,7 +55,7 @@ describe('React CongressAddress Address Suite', function () {
     });
 
   
-    it('renders and displays Last Name of Unknown', () => {
+   /* it('renders and displays Last Name of Unknown', () => {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Last Name: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
@@ -73,19 +104,20 @@ describe('React CongressAddress Address Suite', function () {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Web Address: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
-    });
+    }); */
 
 //=================================================================================================
 
     // button rendering tests
     it('renders button click message to show First name of Suzan', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const fName = <p className="App-intro">First Name: Suzan</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
+        getIndex(wrapper,1,true);
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
-    it('renders button click message to show Last name of DelBene', () => {
+   /* it('renders button click message to show Last name of DelBene', () => {
         const wrapper = shallow(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Last Name: DelBene</p>;
         wrapper.find('button.setAdr').simulate('click');
@@ -129,14 +161,9 @@ describe('React CongressAddress Address Suite', function () {
         const lName = <p className="App-intro">Phone Number: (425)485-0085</p>;
         wrapper.find('button.setAdr').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
-    });
+    }); */
 
-        const wrapper = shallow(<Address addressList={addresses}/>);
-        const lName = <p className="App-intro">Web Address: https://delbene.house.gov/</p>;
-        wrapper.find('button.setAdr').simulate('click');
-        expect(wrapper.contains(lName)).toEqual(true);
-    });
+
 
 
 });// end describe
-*/

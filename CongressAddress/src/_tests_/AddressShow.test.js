@@ -12,6 +12,7 @@ import AddressShow from '../components/AddressShow';
 describe('React AddressShow Suite', function () {
 
     let address = {};
+    let quiet = true;
 
     beforeEach(function() {
         address = addresses[0];
@@ -20,12 +21,16 @@ describe('React AddressShow Suite', function () {
 
     const getLast = (wrapper) =>{
         const ninep = wrapper.find('p').last().debug();
-        console.log(ninep);
+        if(!quiet) {
+            console.log(ninep);
+        }
     };
 
     const getFirst = (wrapper) =>{
         const ninep = wrapper.find('p').first().debug();
-        console.log(ninep);
+        if(!quiet) {
+            console.log(ninep);
+        }
     };
 
 

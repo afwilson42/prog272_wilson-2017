@@ -20,7 +20,7 @@ class AddressShow extends Component {
 
         this.log(props);
 
-    }
+    }// end constructor
 
 
     log(message, message2 = '', message3 = '') {
@@ -31,17 +31,12 @@ class AddressShow extends Component {
         }
     }// end log
 
-// end constructor
-
-    // set AddressShow button function
-    //setAddress = () => {
-
 
 
     render() {
         this.log("RENDER");
         return (
-            <div className="App">
+            <div id="addressShowRender" className="App">
 
                 <p className="App-intro">
                     First Name: {this.props.address.firstName}
@@ -71,10 +66,10 @@ class AddressShow extends Component {
                     Web Address: {this.props.address.web}
                 </p>
 
-                <button onClick={this.setAddress} className="setAdr">Set Address</button>
+                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Address</button>
             </div>
         );
     }
-}
+}// end class AddressShow
 
 export default AddressShow;

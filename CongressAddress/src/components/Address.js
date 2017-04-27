@@ -22,20 +22,22 @@ class Address extends Component {
     }
 
     // set address button function
-    /*setAddress = () => {
+    setAddress = () => {
 
         // set the state to items in addressList index 1
-        const index=1;
+        this.addressIndex=1;
+        const address = addresses[this.addressIndex];
         this.setState({
 
-            address: addresses[index]
+            address: address
         })
-    }; */
+    };
 
     render() {
         return (
             <div className="App">
-                <AddressShow address={this.state.address}/>
+                <AddressShow address={this.state.address}
+                onSetAddress={this.setAddress}/>
             </div>
         );
     }
