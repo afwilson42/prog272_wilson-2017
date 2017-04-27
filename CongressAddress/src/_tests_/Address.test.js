@@ -11,9 +11,8 @@ import addresses from '../address-list';
 
 describe('React Address Test Suite', function () {
 
+    let quiet = true;
 
-
-    var quiet = true;
 
     /*
      * @param {object} wrapper - Container for a bunch of HTML nodes
@@ -30,7 +29,7 @@ describe('React Address Test Suite', function () {
     const defaultFieldTest = (name, index, talkToMe) => {
         const wrapper = mount(<Address address={address}  />);
         const welcome = <p className="App-intro">{name}</p>;
-        getIndex(wrapper, index, talkToMe);
+        //getIndex(wrapper, index, talkToMe);
         expect(wrapper.contains(welcome)).toEqual(true);
     };
 
@@ -53,62 +52,64 @@ describe('React Address Test Suite', function () {
         // sets what rendered element should look like
         const fName = <p className="App-intro">First Name: unknown</p>;
 
+        // defaultFieldTest()
+
         // compares rendered element to expected value. Pass if true, otherwise fail
         expect(wrapper.contains(fName)).toEqual(true);
 
     });
 
   
-   /* it('renders and displays Last Name of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+    it('renders and displays Last Name of Unknown', () => {
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Last Name: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays Street Address of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Street Address: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays City of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">City: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders and displays State of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">State: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Zip Code of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Zip Code: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Zip Code of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Zip Code: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Phone Number of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Phone Number: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Web Address of Unknown', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Web Address: unknown</p>;
         expect(wrapper.contains(lName)).toEqual(true);
-    }); */
+    });
 
 //=================================================================================================
 
@@ -117,57 +118,54 @@ describe('React Address Test Suite', function () {
         const wrapper = mount(<Address addressList={addresses}/>);
         const fName = <p className="App-intro">First Name: Suzan</p>;
         wrapper.find('button#getAddress').simulate('click');
-        getIndex(wrapper,1,true);
+        getIndex(wrapper,1);
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
-   /* it('renders button click message to show Last name of DelBene', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+    it('renders button click message to show Last name of DelBene', () => {
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Last Name: DelBene</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders button click message to show Street Address of 22121 17th Ave SE #220', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Street Address: 22121 17th Ave SE #220</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders button click message to show City of Bothell', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">City: Bothell</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders button click message to show State of Washington', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">State: WA</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
     it('renders button click message to show Zip Code of 98021', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Zip Code: 98021</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders button click message to show Phone Number of (425)485-0085', () => {
-        const wrapper = shallow(<Address addressList={addresses}/>);
+        const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className="App-intro">Phone Number: (425)485-0085</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#getAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
-    }); */
-
-
-
+    });
 
 });// end describe
