@@ -101,6 +101,12 @@ describe('React AddressShow Suite', function () {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
+    it('renders and displays Set Address Button', () => {
+        const wrapper = shallow(<AddressShow address={address}/>);
+        const btn = <button id="getAddress" onClick={this.onSetAddress} className="setAdr">Set Address</button>;
+        expect(wrapper.contains(btn)).toEqual(true);
+    });
+
 //=================================================================================================
 
    /* // button rendering tests

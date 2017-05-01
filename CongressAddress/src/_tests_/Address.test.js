@@ -6,12 +6,13 @@ import React from 'react';
 import Address from '../components/Address';
 import {mount} from 'enzyme';
 import addresses from '../address-list';
+import '../css/index.css';
 
 
 
 describe('React Address Test Suite', function () {
 
-    let quiet = true;
+    let quiet = false;
 
 
     /*
@@ -29,7 +30,7 @@ describe('React Address Test Suite', function () {
     const defaultFieldTest = (name, index, talkToMe) => {
         const wrapper = mount(<Address address={address}  />);
         const welcome = <p className="App-intro">{name}</p>;
-        //getIndex(wrapper, index, talkToMe);
+        getIndex(wrapper, index, talkToMe);
         expect(wrapper.contains(welcome)).toEqual(true);
     };
 
@@ -111,6 +112,18 @@ describe('React Address Test Suite', function () {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
+    /* it('renders and displays Set Address Button', () => {
+        const wrapper = mount(<Address addressList={addresses}/>);
+        getIndex(wrapper,8,true);
+        const btn = <button id="getAddress" onClick={this.OnSetAddress} className="setAdr">Set Address</button>;
+        //const btn = <button id="getAddress" onClick={[Function]} className="setAdr">
+            //Set Address
+        //</button>;
+
+        expect(wrapper.contains(btn)).toEqual(true);
+    }); */
+
+
 //=================================================================================================
 
     // button rendering tests
@@ -118,7 +131,7 @@ describe('React Address Test Suite', function () {
         const wrapper = mount(<Address addressList={addresses}/>);
         const fName = <p className="App-intro">First Name: Suzan</p>;
         wrapper.find('button#getAddress').simulate('click');
-        getIndex(wrapper,1);
+        // getIndex(wrapper,1);
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
