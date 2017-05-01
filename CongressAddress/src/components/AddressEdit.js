@@ -62,8 +62,8 @@ class AddressEdit extends Component {
                        value={this.props.address.web}
                        onChange={this.props.onNameChange}/>
                 <br/>
-                
-                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Address</button>
+
+                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Next Address</button>
             </div>
         );
     }
