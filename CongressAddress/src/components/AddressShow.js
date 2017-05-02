@@ -68,6 +68,8 @@ class AddressShow extends Component {
                 </p>
 
                 <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Address</button>
+                <br/>
+                <br/>
             </div>
         );
     }

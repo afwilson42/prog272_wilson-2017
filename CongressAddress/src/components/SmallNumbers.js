@@ -18,12 +18,14 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App" id="SmallNumbers">
                 <p className="App-intro">
                     Nine: {this.state.nine}
                 </p>
 
                 <button onClick={this.getNine} className="elf">Get Nine</button>
+                <br/>
+                <br/>
             </div>
         );
     }

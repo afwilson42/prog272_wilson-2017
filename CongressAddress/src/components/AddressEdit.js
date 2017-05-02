@@ -18,7 +18,8 @@ class AddressEdit extends Component {
         // this.log("SHOW ADDRESS RENDER");
         return (
             <div id="addressShowRender" className="App">
-
+                <br/>
+                <br/>
 
                 <input id="firstName"
                        className="App-intro"
@@ -62,8 +63,11 @@ class AddressEdit extends Component {
                        value={this.props.address.web}
                        onChange={this.props.onNameChange}/>
                 <br/>
-
+                <br/>
                 <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Next Address</button>
+                <br/>
+                <br/>
+
             </div>
         );
     }
