@@ -9,36 +9,10 @@ import '../css/App.css';
 import addresses from '../address-list';
 import AddressShow from './AddressShow';
 import AddressEdit from './AddressEdit';
+import Address from './Address';
 
+class AddressSelector extends Address {
 
-// TODO: rename to avoid collisions
-class Address extends Component {
-    constructor(){
-        super();
-        this.quiet = true;
-
-
-        // initialize the state to items in addressList index 0
-        this.addressIndex = 0;
-        this.state = {
-
-            address: addresses[this.addressIndex]
-        }
-    }// end constructor
-
-
-
-    // set address button function
-    setAddress = () => {
-
-        // set the state to items in addressList index 1
-        this.addressIndex=1;
-        const address = addresses[this.addressIndex];
-        this.setState({
-
-            address: address
-        })
-    };
 
     onNameChange = (event) => {
         //this.log("ON NAME CHANGE");
@@ -86,12 +60,14 @@ class Address extends Component {
 
     render() {
 
-
+        if (!this.quiet) { console.log("ADDRESS RENDER"); }
         return (
+
             <div className="App">
-                <AddressShow
-                    address={this.state.address}
-                    onSetAddress={this.setAddress}
+                <AddressEdit
+                address={this.state.address}
+                onSetAddress={this.setAddress}
+                onNameChange={this.onNameChange}
                 />
 
             </div>
@@ -99,4 +75,4 @@ class Address extends Component {
     }
 }
 
-export default Address;
+export default AddressSelector;
