@@ -1,5 +1,33 @@
-.App {
+.App, .AppLink, .SmallNumbers {
   text-align: center;
+
+}
+
+.AppLink{
+  border: 1px solid blue;
+  margin-bottom: 8px;
+  background-color: lightblue;
+}
+
+#addressShowRender{
+
+    border: 1px solid black;
+    background-color: blue;
+    color: white;
+
+}
+
+#SmallNumbers{
+    border: 1px solid red;
+    background-color: blue;
+    color: white;
+}
+
+
+
+
+li{
+  list-style-type: none;
 }
 
 .App-logo {
