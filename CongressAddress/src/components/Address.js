@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import addresses from '../address-list';
 import AddressShow from './AddressShow';
-import AddressEdit from './AddressEdit';
+
 
 
 // TODO: rename to avoid collisions

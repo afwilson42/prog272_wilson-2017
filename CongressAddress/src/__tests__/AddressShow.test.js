@@ -7,12 +7,12 @@ import {shallow} from 'enzyme';
 import addresses from '../address-list';
 import AddressShow from '../components/AddressShow';
 import ElfTestDebug from '../ElfTestDebug';
-
+import {mount} from 'enzyme';
 
 describe('React AddressShow Suite', function () {
 
     let address = {};
-    let quiet = true;
+    let quiet = false;
 
     beforeEach(function() {
         address = addresses[0];
@@ -32,6 +32,22 @@ describe('React AddressShow Suite', function () {
             console.log(ninep);
         }
     };
+
+    const getButton = (wrapper) =>{
+        const btnInfo = wrapper.find('button').first().debug();
+        if(!quiet){
+            console.log(btnInfo);
+        }
+    }
+
+    const getIndex = function(wrapper, index, talkToMe) {
+        if (!quiet || talkToMe) {
+            const elementInfo = wrapper.find('div#addressShowRender').childAt(index).debug();
+            console.log('Info:', elementInfo);
+        }
+    };
+
+
 
 
     it('renders and displays the word First Name', () => {
@@ -53,6 +69,8 @@ describe('React AddressShow Suite', function () {
         const wrapper = shallow(<AddressShow address={address}/>);
 
         const lName = <p className="App-intro">Last Name: unknown</p>;
+        console.log(wrapper);
+        console.log(lName);
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
@@ -99,6 +117,7 @@ describe('React AddressShow Suite', function () {
     it('renders and displays Set Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
         const btn = <button id="setAddress" className="setAdr">Next Address</button>;
+        getButton(wrapper);
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
@@ -107,20 +126,28 @@ describe('React AddressShow Suite', function () {
     // button rendering tests
     it('renders button click message to show First name of Suzan', () => {
         const wrapper = shallow(<AddressShow address={address} />);
+        getButton(wrapper);
         const fName = <p className="App-intro">First Name: Suzan</p>;
         wrapper.find('button.setAdr').simulate('click');
+        getIndex(wrapper,0);
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
-    //const wrapper = shallow(<AddressShow address={address} />);
-    // const fName = <p className="App-intro">First Name: unknown</p>;
-    // expect(wrapper.contains(fName)).toEqual(true);
+    fit('renders button click message to show First name of Suzan', () => {
+        const wrapper = mount(<AddressShow address={address} />);
+        const fName = <p className="App-intro">First Name: Suzan</p>;
+        wrapper.find('button#setAddress').simulate('click');
+        // getIndex(wrapper,1);
+        expect(wrapper.contains(fName)).toEqual(true);
+    });
 
     it('renders button click message to show Last name of DelBene', () => {
-        const wrapper = shallow(<AddressShow address={address} />);
+        const wrapper = shallow(<AddressShow address={address}/>);
         const lName = <p className="App-intro">Last Name: DelBene</p>;
+        console.log(lName);
         wrapper.find('button.setAdr').simulate('click');
-        expect(wrapper.contains(lName)).toEqual(true);
+        expect(wrapper.containsMatchingElement(lName)).toEqual(true);
+        //expect(wrapper.contains(lName)).toEqual(true);
     });
 
 
