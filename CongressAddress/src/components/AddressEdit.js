@@ -1,11 +1,9 @@
-/**
- * Created by bcuser on 5/1/17.
- */
-/* AddressShow Show component file for CongressAddress
- Created by Andrew Wilson on 04/17/2017
- Updated by Andrew Wilson on 04/23/2017
- -- added props for initial state and setting state button
- -- added full address information for senator             ...*/
+
+/* AddressEdit Show component file for CongressAddress
+ Created by Andrew Wilson on ?
+ Updated by Andrew Wilson on 05/03/2017
+ -- provides input textboxes for AddressEdit screen
+ -- button name changed to next address            ...*/
 
 import React, {Component} from 'react';
 import '../css/App.css';
@@ -17,7 +15,7 @@ class AddressEdit extends Component {
     render() {
         // this.log("SHOW ADDRESS RENDER");
         return (
-            <div id="addressShowRender" className="App">
+            <div id="addressEditRender" className="App">
                 <br/>
                 <br/>
 
@@ -64,8 +62,7 @@ class AddressEdit extends Component {
                        onChange={this.props.onNameChange}/>
                 <br/>
                 <br/>
-                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Next Address</button>
-                <br/>
+                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Next Address</button><br/>
                 <br/>
 
             </div>

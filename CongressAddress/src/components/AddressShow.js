@@ -67,12 +67,12 @@ class AddressShow extends Component {
                     Web Address: {this.props.address.web}
                 </p>
 
-                <button id="getAddress" onClick={this.props.onSetAddress} className="setAdr">Set Address</button>
+                <button id="setAddress" onClick={this.props.onSetAddress} className="setAdr">Next Address</button>
                 <br/>
                 <br/>
             </div>
-        );
-    }
+        ); // end return
+    }// end render
 }// end class AddressShow
 
 export default AddressShow;

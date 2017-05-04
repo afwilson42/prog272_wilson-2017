@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App  from '../App';
+import SmallNumbers  from '../components/SmallNumbers';
 import {shallow} from 'enzyme';
+import elfTestDebug from '../ElfTestDebug';
+import AddressChanger from '../components/AddressChanger';
 
 
 describe('React JestSuite', function () {
@@ -18,9 +20,9 @@ describe('React JestSuite', function () {
     };
 
 
-    it('renders without our App component crashing', () => {
+    it('renders without our SmallNumbers component crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<App />, div);
+        ReactDOM.render(<SmallNumbers />, div);
     });
 
 
@@ -29,7 +31,7 @@ describe('React JestSuite', function () {
 
 
      it('renders and displays the word Nine', () => {
-        const wrapper = shallow(<App />);
+        const wrapper = shallow(<SmallNumbers />);
         const nine = <p className="App-intro">Nine: 0</p>;
         expect(wrapper.contains(nine)).toEqual(true);
     });
@@ -38,7 +40,7 @@ describe('React JestSuite', function () {
     // Button click test
 
     it('renders button click message to show 9', () => {
-        const wrapper = shallow(<App />);
+        const wrapper = shallow(<SmallNumbers />);
         const nineSign = <p className="App-intro">Nine: 9</p>;
         wrapper.find('button.elf').simulate('click');
         expect(wrapper.contains(nineSign)).toEqual(true);
