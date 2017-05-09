@@ -10,7 +10,7 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 import '../css/App.css';
 
 class AddressMenu extends Component {
@@ -19,16 +19,16 @@ class AddressMenu extends Component {
         return (
             <Router>
                 <div>
-                    <div className="AppLink">
+                    <div className='AppLink'>
                         <ul>
-                            <li><Link to="/">AddressShow</Link></li>
-                            <li><Link to="/edit">AdressEdit</Link></li>
-                            <li><Link to="/small">SmallNumbers</Link></li>
+                            <li><Link to='/'>AddressShow</Link></li>
+                            <li><Link to='/edit'>AdressEdit</Link></li>
+                            <li><Link to='/small'>SmallNumbers</Link></li>
                         </ul>
                     </div>
-                    <Route exact path="/" component={Address}/>
-                    <Route path="/edit" component={AddressChanger}/>
-                    <Route path="/small" component={SmallNumbers}/>
+                    <Route exact path='/' component={Address}/>
+                    <Route path='/edit' component={AddressChanger}/>
+                    <Route path='/small' component={SmallNumbers}/>
                 </div>
             </Router>
         );

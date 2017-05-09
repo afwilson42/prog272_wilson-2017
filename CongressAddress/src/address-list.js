@@ -27,8 +27,39 @@ const addresses = [
         zip: "98021",
         phone: "(425)485-0085",
         web: "https://delbene.house.gov/"
+    },
+    {
+        firstName: 'Lamar',
+        lastName: 'Alexander',
+        streetAdr: '455 Dirksen Senate Office Building',
+        city: 'Washington',
+        usState:'TN',
+        zip: '20510',
+        phone: '202-224-4944',
+        web: 'https://www.govtrack.us/congress/members/lamar_alexander/300002'
+    },
+
+    {
+        firstName: 'Roger',
+        lastName: 'Wicker',
+        streetAdr: '555 Dirksen Senate Office Building',
+        city: 'Washington',
+        usState:'MS',
+        zip: '20510',
+        phone: '202-224-6253',
+        web: 'https://www.govtrack.us/congress/members/roger_wicker/400432'
+    },
+
+    {
+        firstName: 'Timothy',
+        lastName: 'Kaine',
+        streetAdr: '231 Russell Senate Office Building',
+        city: 'Washington',
+        usState:'VA',
+        zip: '20510',
+        phone: '202-224-4024',
+        web: 'https://www.govtrack.us/congress/members/timothy_kaine/412582'
     }
 ];
-
 
 export default addresses;

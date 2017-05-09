@@ -8,7 +8,8 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import addresses from '../address-list';
 import AddressShow from './AddressShow';
-
+import {saveToLocalStorage, saveToLocalStorageByName,
+    getLocalStorage, clearLocalStorage} from "../assets/local-storage";
 
 
 // TODO: rename to avoid collisions
@@ -17,28 +18,32 @@ class Address extends Component {
         super();
         this.quiet = true;
 
-
         // initialize the state to items in addressList index 0
         this.addressIndex = 0;
+
+        /*const address = addresses[this.addressIndex];
+        addressess.forEach(function(address){
+            saveToLocalStorage(address);
+        });// end function, end Address iteration */
+
         this.state = {
 
             address: addresses[this.addressIndex]
         }
+
+        this.setAddress = this.setAddress.bind(this);
     }// end constructor
 
-
-
     // set address button function
-    setAddress = () => {
-
-        // set the state to items in addressList index 1
-        this.addressIndex=1;
+    setAddress(event) {
+        //console.log("SET ADDRESS in ADDRESS CALLED");
+        this.addressIndex += 1;
         const address = addresses[this.addressIndex];
-        this.setState({
 
+        this.setState({
             address: address
         })
-    };
+    };//end function setAddress
 
     onNameChange = (event) => {
         //this.log("ON NAME CHANGE");
@@ -83,15 +88,14 @@ class Address extends Component {
         })
     };
 
-
     render() {
-
 
         return (
             <div className="App">
                 <AddressShow
                     address={this.state.address}
                     onSetAddress={this.setAddress}
+
                 />
 
             </div>
