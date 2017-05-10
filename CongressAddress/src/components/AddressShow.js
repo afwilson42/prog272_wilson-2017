@@ -36,9 +36,9 @@ class AddressShow extends Component {
         return (
             <div id='addressShowRender' className='App'>
 
-                <p className='App-intro'>First Name: {this.props.address.firstName}</p>
-
-
+                <p className='App-intro'>
+                    First Name: {this.props.address.firstName}
+                </p>
                 <p className='App-intro'>
                     Last Name: {this.props.address.lastName}
                 </p>
@@ -62,8 +62,10 @@ class AddressShow extends Component {
                 <p className='App-intro'>
                     Web Address: {this.props.address.web}
                 </p>
-
+                <button id='firstAddress' onClick={this.props.onFirstAddress} className='firstAdr'>First Address</button>
+                <button id='prevAddress' onClick={this.props.onPrevAddress} className='prevAdr'>Previous Address</button>
                 <button id='setAddress' onClick={this.props.onSetAddress} className='setAdr'>Next Address</button>
+                <button id='lastAddress'onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
                 <br/>
                 <br/>
             </div>

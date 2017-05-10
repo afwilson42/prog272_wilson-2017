@@ -31,19 +31,66 @@ class Address extends Component {
             address: addresses[this.addressIndex]
         }
 
+        this.firstAddress = this.firstAddress.bind(this);
         this.setAddress = this.setAddress.bind(this);
+        this.prevAddress = this.prevAddress.bind(this);
+        this.lastAddress = this.lastAddress.bind(this);
     }// end constructor
+
+    // first address button function
+    firstAddress(event) {
+        this.addressIndex = 0;
+        console.log(this.addressIndex);
+        const address = addresses[this.addressIndex];
+
+        this.setState({
+            address: address
+        })
+    };//first function setAddress
 
     // set address button function
     setAddress(event) {
-        //console.log("SET ADDRESS in ADDRESS CALLED");
-        this.addressIndex += 1;
+        let lastIndex = addresses.length -1;
+        if(lastIndex===this.addressIndex){
+            this.addressIndex=lastIndex;
+        }
+        else{
+            this.addressIndex += 1;
+        }
+
         const address = addresses[this.addressIndex];
 
         this.setState({
             address: address
         })
     };//end function setAddress
+
+    prevAddress(event) {
+        if(this.addressIndex === 0){
+            // do nothing
+        }
+        else{
+            this.addressIndex -= 1;
+        }
+
+        console.log(this.addressIndex);
+        const address = addresses[this.addressIndex];
+
+        this.setState({
+            address: address
+        })
+    };//end function setAddress
+
+    lastAddress(event) {
+
+        this.addressIndex = addresses.length -1;
+
+        const address = addresses[this.addressIndex];
+
+        this.setState({
+            address: address
+        })
+    };//end function lastAddress
 
     onNameChange = (event) => {
         //this.log("ON NAME CHANGE");
@@ -94,8 +141,10 @@ class Address extends Component {
             <div className="App">
                 <AddressShow
                     address={this.state.address}
+                    onFirstAddress={this.firstAddress}
                     onSetAddress={this.setAddress}
-
+                    onPrevAddress={this.prevAddress}
+                    onLastAddress={this.lastAddress}
                 />
 
             </div>

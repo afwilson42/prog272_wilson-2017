@@ -95,15 +95,61 @@ describe('React AddressShow Suite', function() {
         expect(wrapper.contains(web)).toEqual(true);
     });
 
+    it('renders and displays First Address Button', () => {
+        const wrapper = shallow(<AddressShow address={address}/>);
+        const btn = <button id='firstAddress' className='firstAdr'>First Address</button>;
+        expect(wrapper.containsMatchingElement(btn)).toEqual(true);
+    });
+
+    it('renders and displays Previous Address Button', () => {
+        const wrapper = shallow(<AddressShow address={address}/>);
+        const btn = <button id='prevAddress' className='prevAdr'>Previous Address</button>;
+        expect(wrapper.containsMatchingElement(btn)).toEqual(true);
+    });
+
     it('renders and displays Set Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
         const btn = <button id='setAddress' className='setAdr'>Next Address</button>;
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
+    it('renders and displays Last Address Button', () => {
+        const wrapper = shallow(<AddressShow address={address}/>);
+        const btn = <button id='lastAddress' className='lastAdr'>Last Address</button>;
+        expect(wrapper.containsMatchingElement(btn)).toEqual(true);
+    });
+
     //=================================================================================================
     // button test
-    it('responds to a button click', () => {
+    it('responds to a button click(First Address)', () => {
+        //create variable to track button click status
+        let clicked = false;
+        //create function to assign as onClick
+        const callback = () => {
+            clicked = true;
+        };
+
+        const wrapper = shallow(<AddressShow onFirstAddress = {callback} address={address}/>);
+        wrapper.find('button#firstAddress').simulate('click');
+        expect(clicked).toEqual(true);
+
+    });
+
+    it('responds to a button click(Previous Address)', () => {
+        //create variable to track button click status
+        let clicked = false;
+        //create function to assign as onClick
+        const callback = () => {
+            clicked = true;
+        };
+
+        const wrapper = shallow(<AddressShow onPrevAddress = {callback} address={address}/>);
+        wrapper.find('button#prevAddress').simulate('click');
+        expect(clicked).toEqual(true);
+
+    });
+
+    it('responds to a button click(Next Address)', () => {
         //create variable to track button click status
         let clicked = false;
         //create function to assign as onClick
@@ -113,6 +159,20 @@ describe('React AddressShow Suite', function() {
 
         const wrapper = shallow(<AddressShow onSetAddress = {callback} address={address}/>);
         wrapper.find('button#setAddress').simulate('click');
+        expect(clicked).toEqual(true);
+
+    });
+
+    it('responds to a button click(Last Address)', () => {
+        //create variable to track button click status
+        let clicked = false;
+        //create function to assign as onClick
+        const callback = () => {
+            clicked = true;
+        };
+
+        const wrapper = shallow(<AddressShow onLastAddress = {callback} address={address}/>);
+        wrapper.find('button#lastAddress').simulate('click');
         expect(clicked).toEqual(true);
 
     });

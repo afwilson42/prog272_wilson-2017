@@ -99,9 +99,17 @@ describe('React Address Test Suite', function() {
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
+    /*it('renders and displays First Address Button', () => {
+        const wrapper = mount(<Address addressList={addresses}/>);
+        const firstAdrBtn = <button id='firstAddress' className='firstAdr'>First Address</button>;
+        expect(wrapper.contains(firstAdrBtn)).toEqual(true);
+    });*/
+
     //=================================================================================================
 
     // button rendering tests
+
+    //NextAddress Button render test for checking 2nd address
     it('renders button click message to show First name of Suzan', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const fName = <p className='App-intro'>First Name: Suzan</p>;
