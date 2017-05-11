@@ -35,10 +35,10 @@ describe('React Address Test Suite', function() {
 
     const afterClickFieldTest = (name, index, talkToMe) => {
         const wrapper = mount(<Address address={address}/>);
-        const patty = <p className='App-intro'>{name}</p>;
+        const theName = <p className='App-intro'>{name}</p>;
         wrapper.find('button#setAddress').simulate('click');
         //getIndex(wrapper, index, talkToMe);
-        expect(wrapper.contains(patty)).toEqual(true);
+        expect(wrapper.contains(theName)).toEqual(true);
     };
 
     it('renders and displays the word First Name', () => {
@@ -89,14 +89,14 @@ describe('React Address Test Suite', function() {
 
     it('renders and displays Phone Number of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const lName = <p className='App-intro'>Phone Number: unknown</p>;
-        expect(wrapper.contains(lName)).toEqual(true);
+        const phone = <p className='App-intro'>Phone Number: unknown</p>;
+        expect(wrapper.contains(phone)).toEqual(true);
     });
 
     it('renders and displays Web Address of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const lName = <p className='App-intro'>Web Address: unknown</p>;
-        expect(wrapper.contains(lName)).toEqual(true);
+        const web = <p className='App-intro'>Web Address: unknown</p>;
+        expect(wrapper.contains(web)).toEqual(true);
     });
 
     /*it('renders and displays First Address Button', () => {

@@ -7,8 +7,9 @@
     "**/config/**",
     "**/scripts/**",
     "**/bower_components/**",
-  "**/address-list.js",
-  "**/mock-user-info.js"],
+    "**/address-list.js",
+    "**/address.json",
+    "**/mock-user-info.js"],
   "requireCamelCaseOrUpperCaseIdentifiers": false
 
 }

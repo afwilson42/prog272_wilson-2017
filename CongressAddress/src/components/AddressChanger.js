@@ -4,14 +4,12 @@ Updated by Andrew Wilson on 04/23/2017
 -- added props for initial state and setting state button
 -- added full address information for senator             ...*/
 
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/App.css';
 import AddressEdit from './AddressEdit';
 import Address from './Address';
 
-
 class AddressChanger extends Address {
-
 
     render() {
 

@@ -10,6 +10,8 @@ import addresses from '../address-list';
 import AddressShow from './AddressShow';
 import {saveToLocalStorage, saveToLocalStorageByName,
     getLocalStorage, clearLocalStorage} from "../assets/local-storage";
+import 'whatwg-fetch';
+
 
 
 // TODO: rename to avoid collisions
@@ -35,10 +37,29 @@ class Address extends Component {
         this.setAddress = this.setAddress.bind(this);
         this.prevAddress = this.prevAddress.bind(this);
         this.lastAddress = this.lastAddress.bind(this);
+
+        /*loadAddresses()
+        {
+            const that = this.
+            fetch('./addresses.json').then(function(data) {
+                const addresses = data.json();
+                console.log(addresses);
+                return addresses;
+            }).then(function(data) {
+                //console.log(JSON.stringify(data, null, 4));
+                data.forEach(function(address){
+                    const addressString = JSON.stringify(address);
+                    localStorage.setItem('elf' + index, addressString);
+                })
+
+            }).catch(function(err) {
+                logger.log(err);
+            })
+        }*/
     }// end constructor
 
     // first address button function
-    firstAddress(event) {
+    firstAddress(event){
         this.addressIndex = 0;
         console.log(this.addressIndex);
         const address = addresses[this.addressIndex];
