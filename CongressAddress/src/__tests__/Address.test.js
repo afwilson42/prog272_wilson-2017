@@ -99,11 +99,11 @@ describe('React Address Test Suite', function() {
         expect(wrapper.contains(web)).toEqual(true);
     });
 
-    /*it('renders and displays First Address Button', () => {
-        const wrapper = mount(<Address addressList={addresses}/>);
-        const firstAdrBtn = <button id='firstAddress' className='firstAdr'>First Address</button>;
-        expect(wrapper.contains(firstAdrBtn)).toEqual(true);
-    });*/
+    it('renders and displays First Address Button', () => {
+        const wrapper = mount(<Address addressList={addresses} />);
+        const firstBtn = <button id='firstShowAddress' className='firstAdr'>First Address</button>;
+        expect(wrapper.containsMatchingElement(firstBtn)).toEqual(true);
+    });
 
     //=================================================================================================
 
@@ -113,7 +113,7 @@ describe('React Address Test Suite', function() {
     it('renders button click message to show First name of Suzan', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const fName = <p className='App-intro'>First Name: Suzan</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         // getIndex(wrapper,1);
         expect(wrapper.contains(fName)).toEqual(true);
     });
@@ -121,49 +121,49 @@ describe('React Address Test Suite', function() {
     it('renders button click message to show Last name of DelBene', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const lName = <p className='App-intro'>Last Name: DelBene</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders button click message to show Street Address of 22121 17th Ave SE #220', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const streetAdr = <p className='App-intro'>Street Address: 22121 17th Ave SE #220</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(streetAdr)).toEqual(true);
     });
 
     it('renders button click message to show City of Bothell', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const city = <p className='App-intro'>City: Bothell</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(city)).toEqual(true);
     });
 
     it('renders button click message to show State of Washington', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const usState = <p className='App-intro'>State: WA</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(usState)).toEqual(true);
     });
 
     it('renders button click message to show Zip Code of 98021', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const zip = <p className='App-intro'>Zip Code: 98021</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(zip)).toEqual(true);
     });
 
     it('renders button click message to show Phone Number of (425)485-0085', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const phone = <p className='App-intro'>Phone Number: (425)485-0085</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(phone)).toEqual(true);
     });
 
     it('renders button click message to show web address of https://delbene.house.gov/', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
         const phone = <p className='App-intro'>Web Address: https://delbene.house.gov/</p>;
-        wrapper.find('button#setAddress').simulate('click');
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(wrapper.contains(phone)).toEqual(true);
     });
 

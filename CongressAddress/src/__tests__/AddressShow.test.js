@@ -97,25 +97,25 @@ describe('React AddressShow Suite', function() {
 
     it('renders and displays First Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
-        const btn = <button id='firstAddress' className='firstAdr'>First Address</button>;
+        const btn = <button id='firstShowAddress' className='firstAdr'>First Address</button>;
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
     it('renders and displays Previous Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
-        const btn = <button id='prevAddress' className='prevAdr'>Previous Address</button>;
+        const btn = <button id='prevShowAddress' className='prevAdr'>Previous Address</button>;
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
-    it('renders and displays Set Address Button', () => {
+    it('renders and displays next Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
-        const btn = <button id='setAddress' className='setAdr'>Next Address</button>;
+        const btn = <button id='nextShowAddress' className='nextAdr'>Next Address</button>;
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
     it('renders and displays Last Address Button', () => {
         const wrapper = shallow(<AddressShow address={address}/>);
-        const btn = <button id='lastAddress' className='lastAdr'>Last Address</button>;
+        const btn = <button id='lastShowAddress' className='lastAdr'>Last Address</button>;
         expect(wrapper.containsMatchingElement(btn)).toEqual(true);
     });
 
@@ -130,7 +130,7 @@ describe('React AddressShow Suite', function() {
         };
 
         const wrapper = shallow(<AddressShow onFirstAddress = {callback} address={address}/>);
-        wrapper.find('button#firstAddress').simulate('click');
+        wrapper.find('button#firstShowAddress').simulate('click');
         expect(clicked).toEqual(true);
 
     });
@@ -144,7 +144,7 @@ describe('React AddressShow Suite', function() {
         };
 
         const wrapper = shallow(<AddressShow onPrevAddress = {callback} address={address}/>);
-        wrapper.find('button#prevAddress').simulate('click');
+        wrapper.find('button#prevShowAddress').simulate('click');
         expect(clicked).toEqual(true);
 
     });
@@ -157,8 +157,8 @@ describe('React AddressShow Suite', function() {
             clicked = true;
         };
 
-        const wrapper = shallow(<AddressShow onSetAddress = {callback} address={address}/>);
-        wrapper.find('button#setAddress').simulate('click');
+        const wrapper = shallow(<AddressShow onNextAddress = {callback} address={address}/>);
+        wrapper.find('button#nextShowAddress').simulate('click');
         expect(clicked).toEqual(true);
 
     });
@@ -172,7 +172,7 @@ describe('React AddressShow Suite', function() {
         };
 
         const wrapper = shallow(<AddressShow onLastAddress = {callback} address={address}/>);
-        wrapper.find('button#lastAddress').simulate('click');
+        wrapper.find('button#lastShowAddress').simulate('click');
         expect(clicked).toEqual(true);
 
     });

@@ -60,7 +60,11 @@ class AddressEdit extends Component {
                        onChange={this.props.onNameChange}/>
                 <br/>
                 <br/>
-                <button id='getAddress' onClick={this.props.onSetAddress} className='setAdr'>Next Address</button><br/>
+                <button id='firstEditAddress' onClick={this.props.onFirstAddress} className='firstAdr'>First Address</button>
+                <button id='prevEditAddress' onClick={this.props.onPrevAddress} className='prevAdr'>Previous Address</button>
+                <button id='nextEditAddress' onClick={this.props.onNextAddress} className='nextAdr'>Next Address</button>
+                <button id='lastEditAddress'onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
+                <br/>
                 <br/>
 
             </div>

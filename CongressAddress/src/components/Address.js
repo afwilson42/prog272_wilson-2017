@@ -8,8 +8,8 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import addresses from '../address-list';
 import AddressShow from './AddressShow';
-import {saveToLocalStorage, saveToLocalStorageByName,
-    getLocalStorage, clearLocalStorage} from "../assets/local-storage";
+/*import {saveToLocalStorage, saveToLocalStorageByName,
+    getLocalStorage, clearLocalStorage} from "../assets/local-storage"; */
 import 'whatwg-fetch';
 
 
@@ -34,7 +34,7 @@ class Address extends Component {
         }
 
         this.firstAddress = this.firstAddress.bind(this);
-        this.setAddress = this.setAddress.bind(this);
+        this.nextAddress = this.nextAddress.bind(this);
         this.prevAddress = this.prevAddress.bind(this);
         this.lastAddress = this.lastAddress.bind(this);
 
@@ -70,7 +70,7 @@ class Address extends Component {
     };//first function setAddress
 
     // set address button function
-    setAddress(event) {
+    nextAddress(event) {
         let lastIndex = addresses.length -1;
         if(lastIndex===this.addressIndex){
             this.addressIndex=lastIndex;
@@ -163,7 +163,7 @@ class Address extends Component {
                 <AddressShow
                     address={this.state.address}
                     onFirstAddress={this.firstAddress}
-                    onSetAddress={this.setAddress}
+                    onNextAddress={this.nextAddress}
                     onPrevAddress={this.prevAddress}
                     onLastAddress={this.lastAddress}
                 />
