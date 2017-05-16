@@ -2,6 +2,10 @@
  * Created by Charlie on 5/8/17.
  */
 
+function foo() {
+    return 'foo';
+}
+
 function saveToLocalStorageByName(key, item) {
     if (!key) {
         const storageIndex = localStorage.length + 1;
@@ -45,3 +49,6 @@ function clearLocalStorage() {
 
 export {saveToLocalStorage, saveToLocalStorageByName,
     getLocalStorage, clearLocalStorage};
+
+
+export {foo};

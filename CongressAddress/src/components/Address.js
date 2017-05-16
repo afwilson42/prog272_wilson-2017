@@ -1,19 +1,19 @@
-/* Address component file for CongressAddress
-Created by Andrew Wilson on 04/17/2017
-Updated by Andrew Wilson on 04/23/2017
--- added props for initial state and setting state button
--- added full address information for senator             ...*/
+/**
+ * Address component file for CongressAddress
+ *Created by Andrew Wilson on 04/17/2017
+ *Updated by Andrew Wilson on 04/23/2017
+ *-- added props for initial state and setting state button
+ *-- added full address information for senator
+ */
 
 import React, { Component } from 'react';
 import '../css/App.css';
-import addresses from '../address-list';
 import AddressShow from './AddressShow';
-/*import {saveToLocalStorage, saveToLocalStorageByName,
-    getLocalStorage, clearLocalStorage} from "../assets/local-storage"; */
+import {saveToLocalStorage, clearLocalStorage} from '../assets/local-storage.js';
 import 'whatwg-fetch';
+//import Logger from '../assets/AppLogger';
 
-
-
+let addresses =[];
 // TODO: rename to avoid collisions
 class Address extends Component {
     constructor(){
@@ -23,14 +23,12 @@ class Address extends Component {
         // initialize the state to items in addressList index 0
         this.addressIndex = 0;
 
-        /*const address = addresses[this.addressIndex];
-        addressess.forEach(function(address){
-            saveToLocalStorage(address);
-        });// end function, end Address iteration */
+        //const address = addresses[this.addressIndex];
+        this.loadAddresses();
 
         this.state = {
 
-            address: addresses[this.addressIndex]
+            address: []//addresses[this.addressIndex]
         }
 
         this.firstAddress = this.firstAddress.bind(this);
@@ -38,25 +36,33 @@ class Address extends Component {
         this.prevAddress = this.prevAddress.bind(this);
         this.lastAddress = this.lastAddress.bind(this);
 
-        /*loadAddresses()
-        {
-            const that = this.
-            fetch('./addresses.json').then(function(data) {
-                const addresses = data.json();
-                console.log(addresses);
-                return addresses;
-            }).then(function(data) {
-                //console.log(JSON.stringify(data, null, 4));
-                data.forEach(function(address){
-                    const addressString = JSON.stringify(address);
-                    localStorage.setItem('elf' + index, addressString);
-                })
+        //const logger = new AppLogger();
 
-            }).catch(function(err) {
-                logger.log(err);
-            })
-        }*/
+
     }// end constructor
+
+    loadAddresses = function()
+    {
+        const that = this;
+
+        fetch('address-list.json').then(function(data) {
+
+            const myData = data.json();
+            console.log(myData);
+            return myData;
+
+        }).then(function (data) {
+            console.log(JSON.stringify(data, null, 4));
+            addresses = data;
+            //that.setLocalStorage();
+            clearLocalStorage();
+            data.forEach(function(address){
+                saveToLocalStorage(address);
+            });// end function, end Address iteration
+        }).catch(function (err) {
+            //logger.log(err);
+        })
+    }// end loadAddresses */
 
     // first address button function
     firstAddress(event){

@@ -13,7 +13,7 @@
  *   logger.log('Hello logger', 'param two', 'param three');
  */
 
-const ElfLogger = class {
+const AppLogger = class {
 
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
         this.display = false;
@@ -48,4 +48,4 @@ const ElfLogger = class {
     };
 };
 
-export default ElfLogger;
+export default AppLogger;
