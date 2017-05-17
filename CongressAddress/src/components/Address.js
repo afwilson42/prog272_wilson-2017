@@ -23,7 +23,7 @@ class Address extends Component {
         // initialize the state to items in addressList index 0
         this.addressIndex = 0;
 
-        //const address = addresses[this.addressIndex];
+        //
         this.loadAddresses();
 
         this.state = {
@@ -54,8 +54,10 @@ class Address extends Component {
         }).then(function (data) {
             console.log(JSON.stringify(data, null, 4));
             addresses = data;
-            //that.setLocalStorage();
+
+            // empty LocalStorage
             clearLocalStorage();
+            // iterate and insert entries into localStorage
             data.forEach(function(address){
                 saveToLocalStorage(address);
             });// end function, end Address iteration
