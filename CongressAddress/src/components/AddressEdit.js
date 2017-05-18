@@ -25,11 +25,11 @@ class AddressEdit extends Component {
 
                 <input id='lastName'
                        className='App-intro'
-                        defaultValue={this.props.address.lastName}
+                       defaultValue={this.props.address.lastName}
                         onChange={this.props.onAddressChange}/>
 
                 <br/>
-                <input id='streetAdr'
+                <input id='street'
                        className='App-intro'
                        defaultValue={this.props.address.street}
                        onChange={this.props.onAddressChange}/>
@@ -39,7 +39,7 @@ class AddressEdit extends Component {
                        defaultValue={this.props.address.city}
                        onChange={this.props.onAddressChange}/>
                 <br/>
-                <input id='usState'
+                <input id='state'
                        className='App-intro'
                        defaultValue={this.props.address.state}
                        onChange={this.props.onAddressChange}/>
