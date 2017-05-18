@@ -13,7 +13,29 @@
  *   logger.log('Hello logger', 'param two', 'param three');
  */
 
-const AppLogger = class {
+/**
+ * Created by charlie on 4/18/17.
+ *
+ * This logger is designed to be used with React. The doc is here: http://bit.ly/elven-utils
+ *
+ * At the command line set the ELF_LOGGER environment variable
+ * to the name of the module you want to debug:
+ *
+ *   export REACT_APP_ELF_LOGGER='address'
+ *
+ * If you want to define two modules, separate them with a semicolon:
+ *
+ *   export REACT_APP_ELF_LOGGER='address;data-loader'
+ *
+ * Further information: http://bit.ly/react-app-elf
+ *
+ * Then start your application and use it like this:
+ *
+ *   import Logger from '../elf-logger';
+ *   const logger = new Logger('address', 'blue', 'yellow', '24px');
+ *   logger.log('Hello logger', 'param two', 'param three');
+ */
+const ElfLogger = class {
 
     constructor(loggerInit, colorInit, bgInit, fontSizeInit) {
         this.display = false;
@@ -36,10 +58,13 @@ const AppLogger = class {
     }
 
     log(message1, message2 = '', message3 = '') {
-        if (this.logger !== process.env.ELF_LOGGER) {
-            console.info('%c %s: %c %s %s %s',
-                this.titleStyle, this.logger, this.textStyle,
-                message1, message2, message3);
+        if (process.env.REACT_APP_ELF_LOGGER) {
+            const envs = process.env.REACT_APP_ELF_LOGGER.split(';');
+            if (envs.indexOf(this.logger) > -1) {
+                console.info('%c %s: %c %s %s %s',
+                    this.titleStyle, this.logger, this.textStyle,
+                    message1, message2, message3);
+            }
         }
     }
 
@@ -48,4 +73,4 @@ const AppLogger = class {
     };
 };
 
-export default AppLogger;
+export default ElfLogger;

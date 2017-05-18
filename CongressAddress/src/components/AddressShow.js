@@ -47,10 +47,10 @@ class AddressShow extends Component {
                     Street Address: {this.props.address.streetAdr}
                 </p>
                 <p className='App-intro'>
-                    City: {this.props.address.city}
+                    City & District: {this.props.address.city}
                 </p>
                 <p className='App-intro'>
-                    State: {this.props.address.usState}
+                    State Represented: {this.props.address.usState}
                 </p>
                 <p className='App-intro'>
                     Zip Code: {this.props.address.zip}

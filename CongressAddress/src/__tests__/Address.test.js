@@ -7,7 +7,8 @@ import Address from '../components/Address';
 import {mount} from 'enzyme';
 import addresses from '../address-list';
 import '../css/index.css';
-import ElfTestDebug from '../ElfTestDebug';
+//import ElfTestDebug from '../ElfTestDebug';
+jest.mock('whatwg-fetch');
 
 describe('React Address Test Suite', function() {
 
@@ -41,7 +42,7 @@ describe('React Address Test Suite', function() {
         expect(wrapper.contains(theName)).toEqual(true);
     };
 
-    it('renders and displays the word First Name', () => {
+    fit('renders and displays the word First Name', () => {
 
         // passes in addresses object
 
@@ -49,7 +50,7 @@ describe('React Address Test Suite', function() {
 
 
         // sets what rendered element should look like
-        const fName = <p className='App-intro'>First Name: unknown</p>;
+        const fName = <p className='App-intro'>First Name: Lamar</p>;
 
         // defaultFieldTest()
 
@@ -57,45 +58,45 @@ describe('React Address Test Suite', function() {
         expect(wrapper.contains(fName)).toEqual(true);
 
     });
-    it('renders and displays Last Name of Unknown', () => {
+    it('renders and displays Last Name of Alexander', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const lName = <p className='App-intro'>Last Name: unknown</p>;
+        const lName = <p className='App-intro'>Last Name: Alexander</p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays Street Address of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const lName = <p className='App-intro'>Street Address: unknown</p>;
+        const lName = <p className='App-intro'>Street Address: 455 Dirksen Senate Office Building </p>;
         expect(wrapper.contains(lName)).toEqual(true);
     });
 
     it('renders and displays City of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const city = <p className='App-intro'>City: unknown</p>;
+        const city = <p className='App-intro'>City: Washington DC</p>;
         expect(wrapper.contains(city)).toEqual(true);
     });
 
     it('renders and displays State of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const usState = <p className='App-intro'>State: unknown</p>;
+        const usState = <p className='App-intro'>State: TN</p>;
         expect(wrapper.contains(usState)).toEqual(true);
     });
 
     it('renders and displays Zip Code of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const zip = <p className='App-intro'>Zip Code: unknown</p>;
+        const zip = <p className='App-intro'>Zip Code: 20510</p>;
         expect(wrapper.contains(zip)).toEqual(true);
     });
 
     it('renders and displays Phone Number of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const phone = <p className='App-intro'>Phone Number: unknown</p>;
+        const phone = <p className='App-intro'>Phone Number: 202-224-4944</p>;
         expect(wrapper.contains(phone)).toEqual(true);
     });
 
     it('renders and displays Web Address of Unknown', () => {
         const wrapper = mount(<Address addressList={addresses}/>);
-        const web = <p className='App-intro'>Web Address: unknown</p>;
+        const web = <p className='App-intro'>Web Address: https://www.alexander.senate.gov/public</p>;
         expect(wrapper.contains(web)).toEqual(true);
     });
 
