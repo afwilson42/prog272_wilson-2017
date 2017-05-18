@@ -19,44 +19,44 @@ class AddressEdit extends Component {
 
                 <input id='firstName'
                        className='App-intro'
-                       value={this.props.address.firstName}
+                       defaultValue={this.props.address.firstName}
                        onChange={this.props.onAddressChange}/>
                 <br/>
 
                 <input id='lastName'
                        className='App-intro'
-                        value={this.props.address.lastName}
+                        defaultValue={this.props.address.lastName}
                         onChange={this.props.onAddressChange}/>
 
                 <br/>
                 <input id='streetAdr'
                        className='App-intro'
-                       value={this.props.address.streetAdr}
+                       defaultValue={this.props.address.street}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <input id='city'
                        className='App-intro'
-                       value={this.props.address.city}
+                       defaultValue={this.props.address.city}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <input id='usState'
                        className='App-intro'
-                       value={this.props.address.usState}
+                       defaultValue={this.props.address.state}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <input id='zip'
                        className='App-intro'
-                       value={this.props.address.zip}
+                       defaultValue={this.props.address.zip}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <input id='phone'
                        className='App-intro'
-                       value={this.props.address.phone}
+                       defaultValue={this.props.address.phone}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <input id='web'
                        className='App-intro'
-                       value={this.props.address.web}
+                       defaultValue={this.props.address.web}
                        onChange={this.props.onAddressChange}/>
                 <br/>
                 <br/>

@@ -48,12 +48,10 @@ class Address extends Component {
                 "state": "TN",
                 "zip": " 20510",
                 "phone": "202-224-4944",
-                "website": "https://www.alexander.senate.gov/public",
-                "email": "",
-                "contact": "http://www.alexander.senate.gov/public/index.cfm?p=Email"
+                "website": "https://www.alexander.senate.gov/public"
             }
         };
-
+        this.onAddressChange = this.onAddressChange.bind(this);
         this.firstAddress = this.firstAddress.bind(this);
         this.nextAddress = this.nextAddress.bind(this);
         this.prevAddress = this.prevAddress.bind(this);
@@ -62,9 +60,9 @@ class Address extends Component {
     }// end constructor
 
     // first address button function
-    firstAddress(event){
+    firstAddress(event) {
         this.addressIndex = 0;
-        console.log(this.addressIndex);
+
         const address = getByIndex(this.addressIndex);
 
         this.setState({
@@ -75,10 +73,10 @@ class Address extends Component {
     // set address button function
     nextAddress(event) {
         let lastIndex = addressLength;
-        if(lastIndex===this.addressIndex){
-            this.addressIndex=lastIndex;
-        }
-        else{
+
+        if (lastIndex === this.addressIndex) {
+            this.addressIndex = lastIndex;
+        }        else {
             this.addressIndex += 1;
         }
 
@@ -86,23 +84,21 @@ class Address extends Component {
 
         this.setState({
             address: address
-        })
+        });
     };//end function setAddress
 
     prevAddress(event) {
-        if(this.addressIndex === 0){
+        if (this.addressIndex === 0) {
             // do nothing
-        }
-        else{
+        }        else {
             this.addressIndex -= 1;
         }
 
-        console.log(this.addressIndex);
         const address = getByIndex(this.addressIndex);
 
         this.setState({
             address: address
-        })
+        });
     };//end function setAddress
 
     lastAddress(event) {
@@ -113,48 +109,10 @@ class Address extends Component {
 
         this.setState({
             address: address
-        })
+        });
     };//end function lastAddress
 
-    onAddressChange = (event) => {
-        //this.log("ON NAME CHANGE");
-        /*const address = addresses[this.addressIndex];
-        switch (event.target.id) {
-            case 'firstName':
-                address.firstName = event.target.value;
-                break;
-            case 'lastName':
-                address.lastName = event.target.value;
-                break;
-
-            case 'streetAdr':
-                address.streetAdr = event.target.value;
-                break;
-
-            case 'city':
-                address.city = event.target.value;
-                break;
-
-            case 'usState':
-                address.usState = event.target.value;
-                break;
-
-            case 'zipcode':
-                address.zip = event.target.value;
-                break;
-
-            case 'phone':
-                address.phone = event.target.value;
-                break;
-
-            case 'web':
-                address.web = event.target.value;
-                break;
-
-            default:
-                throw new Error('OH NO BAD CASE in Address onNameChange');
-        }*/
-
+    onAddressChange (event) {
         detailLogger.log('onAddressChange called with', event.target.id);
         if (event.target.id.startsWith('dec')) {
             if (this.addressIndex > 0) {
@@ -168,16 +126,15 @@ class Address extends Component {
         detailLogger.log('addressIndex', this.addressIndex);
         const address = getByIndex(this.addressIndex);
 
-
         this.setState({
             address: address
-        })
-    };// end onNameChange
+        });
+    };// end onAddressChange
 
     render() {
 
         return (
-            <div className="App">
+            <div className='App'>
                 <AddressShow
                     address={this.state.address}
                     onFirstAddress={this.firstAddress}
