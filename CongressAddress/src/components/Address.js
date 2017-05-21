@@ -19,7 +19,7 @@ let addressLength = 0;
 
 // TODO: rename to avoid collisions
 class Address extends Component {
-    constructor(){
+    constructor() {
         super();
         this.quiet = true;
 
@@ -34,9 +34,6 @@ class Address extends Component {
 
         // initialize the state to items in addressList index 0
         this.addressIndex = 0;
-
-        //
-
 
         this.state = {
 
