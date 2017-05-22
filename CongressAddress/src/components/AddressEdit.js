@@ -8,6 +8,8 @@
 import React, {Component} from 'react';
 import '../css/App.css';
 import './Address';
+//import Logger from '../assets/ElfLogger.js';
+//const detailLogger = new Logger('data-loader', 'yellow', 'green', '18px');
 
 class AddressEdit extends Component {
     render() {
@@ -63,7 +65,7 @@ class AddressEdit extends Component {
                 <button id='firstEditAddress' onClick={this.props.onFirstAddress} className='firstAdr'>First Address</button>
                 <button id='prevEditAddress' onClick={this.props.onPrevAddress} className='prevAdr'>Previous Address</button>
                 <button id='nextEditAddress' onClick={this.props.onNextAddress} className='nextAdr'>Next Address</button>
-                <button id='lastEditAddress'onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
+                <button id='lastEditAddress' onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
                 <br/>
                 <br/>
 

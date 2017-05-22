@@ -19,7 +19,7 @@ class AddressChanger extends Address {
             <div className='App'>
                 <AddressEdit
                     address={this.state.address}
-                    onNameChange={this.onNameChange}
+                    onAddressChange={this.onAddressChange}
                     onFirstAddress={this.firstAddress}
                     onNextAddress={this.nextAddress}
                     onPrevAddress={this.prevAddress}
