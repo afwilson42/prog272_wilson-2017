@@ -32,11 +32,6 @@ input{
     width: 600px;
 }
 
-
-li{
-  list-style-type: none;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -62,4 +57,15 @@ button{
     margin-left: 5px;
     margin-right: 5px;
     border-radius: 5px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    padding: 5px;
 }

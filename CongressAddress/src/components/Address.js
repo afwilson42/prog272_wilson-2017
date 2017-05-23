@@ -9,12 +9,12 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import AddressShow from './AddressShow';
-import {getByIndex, saveByIndex} from '../assets/local-storage.js';
+import {getByIndex, saveByIndex, clearLocalStorage} from '../assets/local-storage.js';
 import 'whatwg-fetch';
-//import Logger from '../assets/ElfLogger.js';
+import Logger from '../assets/ElfLogger.js';
 import DataLoader from '../assets/DataLoader';
 const dataLoader = new DataLoader();
-//const detailLogger = new Logger('data-loader', 'yellow', 'green', '18px');
+const detailLogger = new Logger('data-loader', 'yellow', 'green', '18px');
 let addressLength = 0;
 
 // TODO: rename to avoid collisions
@@ -22,7 +22,7 @@ class Address extends Component {
     constructor() {
         super();
         this.quiet = true;
-
+        //clearLocalStorage();
         const that = this;
         dataLoader.loadAddresses(function(addressCount) {
             if (!addressCount) {
@@ -30,30 +30,24 @@ class Address extends Component {
             }
             that.addressCount = addressCount;
             addressLength = addressCount - 1;
+
         });
 
         // initialize the state to items in addressList index 0
-        this.addressIndex = 0;
+        that.addressIndex = 0;
 
-        this.state = {
+        var startAddress = getByIndex(that.addressIndex);
 
-            address: {
-                'firstName': 'Lamar',
-                'lastName': 'Alexander',
-                'street': '455 Dirksen Senate Office Building',
-                'city': 'Washington DC',
-                'state': 'TN',
-                'zip':  '20510',
-                'phone': '202-224-4944',
-                'website': 'https://www.alexander.senate.gov/public'
-            }
+        that.state = {
+
+            address: startAddress
+
         };
-        this.onAddressChange = this.onAddressChange.bind(this);
-        this.firstAddress = this.firstAddress.bind(this);
-        this.nextAddress = this.nextAddress.bind(this);
-        this.prevAddress = this.prevAddress.bind(this);
-        this.lastAddress = this.lastAddress.bind(this);
 
+        this.firstAddress = this.firstAddress.bind(this);
+        this.lastAddress = this.lastAddress.bind(this);
+        this.onAddressButtonClick = this.onAddressButtonClick.bind(this);
+        this.onAddressFieldChange = this.onAddressFieldChange.bind(this);
     }// end constructor
 
     // first address button function
@@ -67,93 +61,88 @@ class Address extends Component {
         });
     };//first function setAddress
 
-    // set address button function
-    nextAddress(event) {
-        let lastIndex = addressLength;
+    onAddressButtonClick(event) {
+        detailLogger.log('onAddressChange called with', event.target.id);
+        //console.log(this.addressIndex);
+        if (event.target.id.startsWith('prev')) {
+            if (this.addressIndex > 0) {
+                this.addressIndex -= 1;
+                //console.log(this.addressIndex);
+            }
 
-        if (lastIndex === this.addressIndex) {
-            this.addressIndex = lastIndex;
-        }        else {
-            this.addressIndex += 1;
+        } else {
+            if (this.addressIndex < this.addressCount - 1) {
+                this.addressIndex += 1;
+                //console.log(this.addressIndex);
+            }
+
         }
 
-        const followingAddress = getByIndex(this.addressIndex);
+        detailLogger.log('addressIndex', this.addressIndex);
+        const address = getByIndex(this.addressIndex);
 
         this.setState({
-            address: followingAddress
+            address: address
         });
-    };//end function setAddress
-
-    prevAddress(event) {
-        if (this.addressIndex === 0) {
-            // do nothing
-        }        else {
-            this.addressIndex -= 1;
-        }
-
-        const priorAddress = getByIndex(this.addressIndex);
-
-        this.setState({
-            address: priorAddress
-        });
-    };//end function setAddress
+    };
 
     lastAddress(event) {
 
         this.addressIndex = addressLength;
 
         const finalAddress = getByIndex(this.addressIndex);
-        console.log(finalAddress);
+        //console.log(this.addressIndex);
+        //console.log(finalAddress);
 
         this.setState({
             address: finalAddress
         });
     };//end function lastAddress
 
-    onAddressChange (event) {
-        const updateAddressField = getByIndex[this.addressIndex];
-        console.log(event.target.value);
-        console.log(this.addressIndex);
-        console.log(getByIndex[this.addressIndex]);
+    onAddressFieldChange (event) {
+        const updateAddressField = getByIndex(this.addressIndex);
+        //console.log(event.target.value);
+        //console.log(this.addressIndex);
+        //console.log(getByIndex(this.addressIndex));
         console.log(updateAddressField);
         switch (event.target.id) {
             case 'firstName':
                 updateAddressField.firstName = event.target.value;
-                saveByIndex(updateAddressField.firstName, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
             case 'lastName':
                 updateAddressField.lastName = event.target.value;
-                saveByIndex(updateAddressField.lastName, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
-            case 'streetAdr':
+            case 'street':
                 updateAddressField.streetAdr = event.target.value;
-                saveByIndex(updateAddressField.streetAdr, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
             case 'city':
                 updateAddressField.city = event.target.value;
-                saveByIndex(updateAddressField.city, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
-            case 'usState':
-                updateAddressField.usState = event.target.value;
-                saveByIndex(updateAddressField.usState, this.addressIndex);
+            case 'state':
+                updateAddressField.state = event.target.value;
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
-            case 'zipcode':
+            case 'zip':
                 updateAddressField.zip = event.target.value;
-                saveByIndex(updateAddressField.zip, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
             case 'phone':
                 updateAddressField.phone = event.target.value;
-                saveByIndex(updateAddressField.phone, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
             case 'web':
                 updateAddressField.web = event.target.value;
-                saveByIndex(updateAddressField.web, this.addressIndex);
+                saveByIndex(updateAddressField, this.addressIndex);
                 break;
 
             default:
@@ -173,8 +162,7 @@ class Address extends Component {
                 <AddressShow
                     address={this.state.address}
                     onFirstAddress={this.firstAddress}
-                    onNextAddress={this.nextAddress}
-                    onPrevAddress={this.prevAddress}
+                    addressButtonClick={this.onAddressButtonClick}
                     onLastAddress={this.lastAddress}
                 />
 

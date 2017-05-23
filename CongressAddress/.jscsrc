@@ -9,7 +9,8 @@
     "**/bower_components/**",
     "**/address-list.js",
     "**/address.json",
-    "**/mock-user-info.js"],
-  "requireCamelCaseOrUpperCaseIdentifiers": false
+    "**/mock-user-info.js",
+    "**/mock-data.js"],
+    "requireCamelCaseOrUpperCaseIdentifiers": false
 
 }

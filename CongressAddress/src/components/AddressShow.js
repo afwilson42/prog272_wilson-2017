@@ -63,8 +63,8 @@ class AddressShow extends Component {
                     Web Address: {this.props.address.web}
                 </p>
                 <button id='firstShowAddress' onClick={this.props.onFirstAddress} className='firstAdr'>First Address</button>
-                <button id='prevShowAddress' onClick={this.props.onPrevAddress} className='prevAdr'>Previous Address</button>
-                <button id='nextShowAddress' onClick={this.props.onNextAddress} className='nextAdr'>Next Address</button>
+                <button id='prevShowAddress' onClick={this.props.addressButtonClick} className='prevAdr'>Previous Address</button>
+                <button id='nextShowAddress' onClick={this.props.addressButtonClick} className='nextAdr'>Next Address</button>
                 <button id='lastShowAddress'onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
                 <br/>
                 <br/>

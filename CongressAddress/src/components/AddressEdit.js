@@ -22,49 +22,49 @@ class AddressEdit extends Component {
                 <input id='firstName'
                        className='App-intro'
                        value={this.props.address.firstName}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
 
                 <input id='lastName'
                        className='App-intro'
                        value={this.props.address.lastName}
-                        onChange={this.props.onAddressChange}/>
+                        onChange={this.props.onAddressFieldChange}/>
 
                 <br/>
                 <input id='street'
                        className='App-intro'
                        value={this.props.address.street}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <input id='city'
                        className='App-intro'
                        value={this.props.address.city}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <input id='state'
                        className='App-intro'
                        value={this.props.address.state}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <input id='zip'
                        className='App-intro'
                        value={this.props.address.zip}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <input id='phone'
                        className='App-intro'
                        value={this.props.address.phone}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <input id='web'
                        className='App-intro'
                        value={this.props.address.web}
-                       onChange={this.props.onAddressChange}/>
+                       onChange={this.props.onAddressFieldChange}/>
                 <br/>
                 <br/>
                 <button id='firstEditAddress' onClick={this.props.onFirstAddress} className='firstAdr'>First Address</button>
-                <button id='prevEditAddress' onClick={this.props.onPrevAddress} className='prevAdr'>Previous Address</button>
-                <button id='nextEditAddress' onClick={this.props.onNextAddress} className='nextAdr'>Next Address</button>
+                <button id='prevEditAddress' onClick={this.props.addressButtonClick} className='prevAdr'>Previous Address</button>
+                <button id='nextEditAddress' onClick={this.props.addressButtonClick} className='nextAdr'>Next Address</button>
                 <button id='lastEditAddress' onClick={this.props.onLastAddress} className='lastAdr'>Last Address</button>
                 <br/>
                 <br/>

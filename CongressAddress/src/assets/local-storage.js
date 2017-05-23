@@ -24,6 +24,8 @@ function saveByIndex(item, index) {
 
 function getByIndex(index) {
     const key = ELF_TAG + padNumber(index, 4, 0);
+    console.log(key);
+    console.log(JSON.parse(localStorage.getItem(key)));
     return JSON.parse(localStorage.getItem(key));
 }
 
@@ -39,4 +41,5 @@ function clearLocalStorage() {
     localStorage.clear();
 }
 
-export {saveByIndex, getByIndex, removeElfKeys, clearLocalStorage};
+export {saveByIndex, getByIndex,
+    removeElfKeys, clearLocalStorage};

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from '../images/Smallpie.svg';
 import '../css/App.css';
 
-
 class ElfHeader extends Component {
 
     render() {

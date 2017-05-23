@@ -19,10 +19,9 @@ class AddressChanger extends Address {
             <div className='App'>
                 <AddressEdit
                     address={this.state.address}
-                    onAddressChange={this.onAddressChange}
+                    onAddressFieldChange={this.onAddressFieldChange}
                     onFirstAddress={this.firstAddress}
-                    onNextAddress={this.nextAddress}
-                    onPrevAddress={this.prevAddress}
+                    addressButtonClick={this.onAddressButtonClick}
                     onLastAddress={this.lastAddress}
                 />
 
