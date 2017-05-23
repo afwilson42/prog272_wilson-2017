@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import AddressShow from './AddressShow';
-import {getByIndex, saveByIndex, clearLocalStorage} from '../assets/local-storage.js';
+import {getByIndex, saveByIndex} from '../assets/local-storage.js';
 import 'whatwg-fetch';
 import Logger from '../assets/ElfLogger.js';
 import DataLoader from '../assets/DataLoader';
@@ -22,7 +22,7 @@ class Address extends Component {
     constructor() {
         super();
         this.quiet = true;
-        //clearLocalStorage();
+
         const that = this;
         dataLoader.loadAddresses(function(addressCount) {
             if (!addressCount) {
@@ -36,11 +36,18 @@ class Address extends Component {
         // initialize the state to items in addressList index 0
         that.addressIndex = 0;
 
-        var startAddress = getByIndex(that.addressIndex);
-
         that.state = {
 
-            address: startAddress
+            address: {
+                'firstName': 'Lamar',
+                'lastName': 'Alexander',
+                'street': '455 Dirksen Senate Office Building',
+                'city': 'Washington DC',
+                'state': 'TN',
+                'zip': ' 20510',
+                'phone': '202-224-4944',
+                'web': 'https://www.alexander.senate.gov/public'
+            }
 
         };
 
