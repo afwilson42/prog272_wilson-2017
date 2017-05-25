@@ -11,9 +11,28 @@ import {mount} from 'enzyme';
 import { MemoryRouter, Router } from 'react-router';
 import DataMaven from '../components/DataMaven';
 const elfDebug = new ElfDebugEnzyme(true, 'AddressMenu.test.js');
-
+jest.mock('whatwg-fetch');
 
 describe('AddressMenu Suite', function() {
+
+    beforeEach(function() {
+        const localStorageMock = (function() {
+            let storage = {};
+            return {
+                getItem: function(key) {
+                    return storage[key];
+                },
+                setItem: function(key, value) {
+                    storage[key] = value.toString();
+                },
+                clear: function() {
+                    storage = {};
+                }
+            };
+        })();
+        Object.defineProperty(global, 'localStorage', {value: localStorageMock});
+
+    });
 
     fit('renders the AddressMenu component without crashing', () => {
         const div = document.createElement('div');
