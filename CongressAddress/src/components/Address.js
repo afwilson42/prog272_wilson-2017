@@ -6,10 +6,10 @@
  *-- added full address information for senator
  */
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../css/App.css';
 import AddressShow from './AddressShow';
-import {getByIndex, saveByIndex, clearLocalStorage} from '../assets/local-storage.js';
+import {getByIndex, saveByIndex} from '../assets/local-storage.js';
 import 'whatwg-fetch';
 import Logger from '../assets/ElfLogger.js';
 import DataLoader from '../assets/DataLoader';
@@ -22,7 +22,7 @@ class Address extends Component {
     constructor() {
         super();
         this.quiet = true;
-        //clearLocalStorage();
+
         const that = this;
         dataLoader.loadAddresses(function(addressCount) {
             if (!addressCount) {
@@ -99,7 +99,7 @@ class Address extends Component {
         });
     };//end function lastAddress
 
-    onAddressFieldChange (event) {
+    onAddressFieldChange(event) {
         const updateAddressField = getByIndex(this.addressIndex);
         //console.log(event.target.value);
         //console.log(this.addressIndex);

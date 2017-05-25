@@ -5,8 +5,7 @@ import React from 'react';
 import ElfHeader from '../components/ElfHeader';
 import {shallow} from 'enzyme';
 
-
-    describe('React CongressAddress Header Suite', function () {
+describe('React CongressAddress Header Suite', function() {
 
     // element rendering test
     it('renders and reads H1 text', () => {

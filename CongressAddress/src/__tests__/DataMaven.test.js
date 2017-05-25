@@ -6,7 +6,6 @@ import DataMaven from '../components/DataMaven';
 import {shallow} from 'enzyme';
 import ElfDebugEnzyme from '../ElfDebugEnzyme';
 
-
 const elfDebug = new ElfDebugEnzyme(true, 'DataMaven.test.js');
 
 describe('DataMaven Suite', function() {
