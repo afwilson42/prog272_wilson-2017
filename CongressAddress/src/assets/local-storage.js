@@ -24,8 +24,6 @@ function saveByIndex(item, index) {
 
 function getByIndex(index) {
     const key = ELF_TAG + padNumber(index, 4, 0);
-    console.log(key);
-    console.log(JSON.parse(localStorage.getItem(key)));
     return JSON.parse(localStorage.getItem(key));
 }
 

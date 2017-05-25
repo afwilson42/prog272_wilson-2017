@@ -36,11 +36,18 @@ class Address extends Component {
         // initialize the state to items in addressList index 0
         that.addressIndex = 0;
 
-        var startAddress = getByIndex(that.addressIndex);
-
         that.state = {
 
-            address: startAddress
+            address: {
+                'firstName': 'Lamar',
+                'lastName': 'Alexander',
+                'street': '455 Dirksen Senate Office Building',
+                'city': 'Washington DC',
+                'state': 'TN',
+                'zip': ' 20510',
+                'phone': '202-224-4944',
+                'web': 'https://www.alexander.senate.gov/public'
+            }
 
         };
 
