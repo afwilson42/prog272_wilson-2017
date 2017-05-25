@@ -16,7 +16,7 @@ class AddressMenu extends Component {
             <div className='AppLink'>
                 <ul>
                     <li><Link to='/'>AddressShow</Link></li>
-                    <li><Link to='/edit'>AdressEdit</Link></li>
+                    <li><Link to='/edit'>AddressEdit</Link></li>
                     <li><Link to='/small'>SmallNumbers</Link></li>
                 </ul>
             </div>
