@@ -3,11 +3,12 @@
  */
 
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import addresses from '../address-list';
 import AddressShow from '../components/AddressShow';
+import Address from '../components/Address';
 import ElfTestDebug from '../ElfTestDebug';
-
+const elfTestDebug = new ElfTestDebug(true);
 
 describe('React AddressShow Suite', function () {
 
@@ -105,10 +106,11 @@ describe('React AddressShow Suite', function () {
 //=================================================================================================
 
     // button rendering tests
-    it('renders button click message to show First name of Suzan', () => {
-        const wrapper = shallow(<AddressShow address={address} />);
+    fit('renders button click message to show First name of Suzan', () => {
+        const wrapper = mount(<Address />);
         const fName = <p className="App-intro">First Name: Suzan</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#setAddress').simulate('click');
+        elfTestDebug.getIndex(wrapper, 'div#addressShowRender', 0);
         expect(wrapper.contains(fName)).toEqual(true);
     });
 
@@ -116,10 +118,11 @@ describe('React AddressShow Suite', function () {
     // const fName = <p className="App-intro">First Name: unknown</p>;
     // expect(wrapper.contains(fName)).toEqual(true);
 
-    it('renders button click message to show Last name of DelBene', () => {
-        const wrapper = shallow(<AddressShow address={address} />);
+    fit('renders button click message to show Last name of DelBene', () => {
+        const wrapper = mount(<Address />);
         const lName = <p className="App-intro">Last Name: DelBene</p>;
-        wrapper.find('button.setAdr').simulate('click');
+        wrapper.find('button#setAddress').simulate('click');
+        elfTestDebug.getIndex(wrapper, 'div#addressShowRender', 1);
         expect(wrapper.contains(lName)).toEqual(true);
     });
 

@@ -29,9 +29,9 @@ export default class ElfDebug {
         }
     }
 
-    getIndex(wrapper, index) {
+    getIndex(wrapper, element, index) {
         if (this.showData) {
-            var paragraphData = wrapper.find('form').childAt(index).debug();
+            var paragraphData = wrapper.find(element).childAt(index).debug();
             console.log(paragraphData);
         }
     }
