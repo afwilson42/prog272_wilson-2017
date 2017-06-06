@@ -1,12 +1,12 @@
 /**
- * Created by bcuser on 5/31/17.
+ * Created by charlie on 6/5/16.
  */
 
-//var express = require('express');
-var connect = require('./connect');
-var Politicians = require('../models/politicians');
-var fs = require('fs');
-var totalPoliticiansSaved = 0;
+//const express = require('express');
+const connect = require('./connect');
+const Politicians = require('../models/politicians');
+const fs = require('fs');
+let totalPoliticiansSaved = 0;
 
 function allMongo() {
     'use strict';
@@ -19,16 +19,16 @@ function insertPolitician(politician, response) {
     if (!connect.connected) {
         connect.doConnection();
     }
-    var newPolitician = new Politicians({
+    const newPolitician = new Politicians({
         'firstName': politician.firstName,
         'lastName': politician.lastName,
+        'street': politician.street,
         'city': politician.city,
         'state': politician.state,
         'zip': politician.zip,
         'phone': politician.phone,
-        'website': politician.website,
-        'email': politician.email,
-        'contact': politician.contact
+        'contact': politician.contact,
+        'web': politician.web
     });
 
     console.log('inserting', newPolitician.lastName);
@@ -41,7 +41,7 @@ function insertPolitician(politician, response) {
         console.log('saved: ', newPolitician.lastName, allMongo.numberOfPoliticians, totalPoliticiansSaved);
 
         if (totalPoliticiansSaved === allMongo.numberOfPoliticians) {
-            response.send({
+            response.status(200).send({
                 result: 'Success Saving Politicians',
                 totalSaved: totalPoliticiansSaved
             });
@@ -52,12 +52,15 @@ function insertPolitician(politician, response) {
 allMongo.getAllData = function(response) {
     console.log('About to find politicians.');
     Politicians.find({}, function(err, allData) {
+        if (err) {
+            throw new Error(err);
+        }
         console.log(allData.length);
         console.log(allData[0]);
 
         allMongo.writeData('politicians.json', allData);
 
-        response.send({
+        response.status(200).send({
             result: 'Success',
             allData: allData
         });
@@ -66,7 +69,7 @@ allMongo.getAllData = function(response) {
 
 allMongo.writeData = function(fileName, data) {
     'use strict';
-    var dataAsString = JSON.stringify(data, null, 4);
+    const dataAsString = JSON.stringify(data, null, 4);
     fs.writeFile(fileName, dataAsString, function(err, result) {
         if (err) {
             throw (err);
@@ -86,7 +89,7 @@ allMongo.readDataAndInsert = function(response) {
         politiciansText = JSON.parse(politiciansText);
         totalPoliticiansSaved = 0;
         allMongo.numberOfPoliticians = politiciansText.length;
-        for (var i = 0; i < politiciansText.length; i++) {
+        for (let i = 0; i < politiciansText.length; i++) {
             insertPolitician(politiciansText[i], response);
         }
     });
@@ -95,12 +98,12 @@ allMongo.readDataAndInsert = function(response) {
 allMongo.empty = function(response) {
     Politicians.remove({}, function(err) {
         if (err) {
-            response.send({
+            response.status(500).send({
                 result: 'err',
                 err: err
             });
         } else {
-            response.send({
+            response.status(200).send({
                 result: 'collection removed'
             });
         }
