@@ -111,9 +111,10 @@ allMongo.empty = function(response) {
 };
 
 allMongo.update = function(requestQuery, response) {
-    console.log('All Mongo', requestQuery._id);
+    console.log('All Mongo update', requestQuery);
+    console.log('All Mongo update id', requestQuery.id);
     Politicians.findOne({
-        _id: requestQuery._id
+        _id: requestQuery.id
     }, function(err, doc) {
         console.log('findone', err, doc);
         if (err) {
