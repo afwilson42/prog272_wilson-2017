@@ -24,25 +24,22 @@ class DataMaven extends Component {
         super();
         this.quiet = true;
 
-        const that = this;
-        dataLoader.loadAddresses(function(addressCount) {
-            if (!addressCount) {
-                throw new Error('Cannot get address count in address.js');
+        this.addressIndex = 0;
+
+        var unknown = 'loading';
+        this.state = {
+            address: {
+                'firstName': unknown,
+                'lastName': unknown,
+                'street': unknown,
+                'city': unknown,
+                'state': unknown,
+                'zip': unknown,
+                'phone': unknown,
+                'website': unknown,
+                'email': unknown,
+                'contact': unknown
             }
-            that.addressCount = addressCount;
-            addressLength = addressCount - 1;
-
-        });
-
-        // initialize the state to items in addressList index 0
-        that.addressIndex = 0;
-
-        var startAddress = getByIndex(that.addressIndex);
-
-        that.state = {
-
-            address: startAddress
-
         };
 
         this.firstAddress = this.firstAddress.bind(this);
@@ -50,6 +47,22 @@ class DataMaven extends Component {
         this.onAddressButtonClick = this.onAddressButtonClick.bind(this);
         this.onAddressFieldChange = this.onAddressFieldChange.bind(this);
     }// end constructor
+
+    componentDidMount() {
+        //logger.log('DID MOUNT');
+        const that = this;
+        dataLoader.loadAddresses(function(addressCount) {
+            if (!addressCount) {
+                throw new Error('Cannot get address count in address.js');
+            }
+            that.addressCount = addressCount;
+            //logger.log('LOADED ADDRESS');
+            const address = getByIndex(that.addressIndex);
+            that.setState({
+                address: address
+            });
+        });
+    }
 
     // first address button function
     firstAddress(event) {
