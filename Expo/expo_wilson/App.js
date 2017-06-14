@@ -1,17 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View } from 'react-native';
+import Address from './Address';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Wilson on Prog 272 Expo</Text>
-          <Button
-              onPress={this.fetchAddress}
-              title="Get Data"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-          />
+
+        <Address/>
       </View>
 
     );
