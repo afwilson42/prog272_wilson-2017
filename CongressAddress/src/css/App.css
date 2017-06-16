@@ -45,7 +45,7 @@ input{
 }
 
 .App-intro {
-  font-size: large;
+    font-size: 18px;
 }
 
 @keyframes App-logo-spin {
@@ -65,7 +65,43 @@ ul{
     padding: 0;
 }
 
-li {
-    display: inline;
-    padding: 5px;
+li.navbar-brand {
+    list-style-type: none;
+}
+
+.Form .FormLabel {
+    color: #A0A0A0;
+    display: block;
+    font-size: 12px;
+    padding: 12px 0 6px;
+}
+
+.Form .FormRow {
+    padding-left: 20px;
+    text-align: left;
+}
+
+App.ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: coral;
+}
+
+.App.li {
+    float: left;
+}
+
+.App.li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.App.li a:hover {
+    background-color: #111;
 }
