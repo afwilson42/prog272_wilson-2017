@@ -26,7 +26,8 @@ router.get('/admin', function(req, res) {
 
 function checkConnection() {
     if (!connect.connected) {
-        connect.doConnection('mlab');
+        //connect.doConnection('mlab');
+        connect.doConnection('simpleConnect');
     }
 }
 
