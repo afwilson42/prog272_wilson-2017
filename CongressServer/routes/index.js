@@ -6,13 +6,13 @@ var allMongo = require('./all-mongo');
 var connect = require('./connect');
 
 router.get('/bar', function(request, response) {
+    'use strict';
     response.status(200).send({result: 'bar'});
 });
 
 /* GET home page. */
 router.get('/', function(req, res) {
     'use strict';
-    //res.render('index', {title: 'CongressServer'});
     res.loadFile('index.html');
 });
 
@@ -23,11 +23,10 @@ router.get('/admin', function(req, res) {
 
 });
 
-
 function checkConnection() {
+    'use strict';
     if (!connect.connected) {
-        //connect.doConnection('mlab');
-        connect.doConnection('simpleConnect');
+        connect.doConnection('mlab');
     }
 }
 

@@ -17,7 +17,7 @@ const dataLoader = new DataLoader();
 const detailLogger = new Logger('data-loader', 'yellow', 'green', '18px');
 let addressLength = 0;
 
-// TODO: rename to avoid collisions
+
 class Address extends Component {
     constructor() {
         super();
