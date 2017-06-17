@@ -26,7 +26,7 @@ class DataMaven extends Component {
 
         this.addressIndex = 0;
 
-        var unknown = 'loading';
+        let unknown = 'loading';
         this.state = {
             address: {
                 'firstName': unknown,
@@ -49,14 +49,18 @@ class DataMaven extends Component {
     }// end constructor
 
     componentDidMount() {
-        //logger.log('DID MOUNT');
+        detailLogger.log('DID MOUNT');
+        this.loadFromDatabase();
+    }
+
+    loadFromDatabase() {
         const that = this;
         dataLoader.loadAddresses(function(addressCount) {
             if (!addressCount) {
                 throw new Error('Cannot get address count in address.js');
             }
             that.addressCount = addressCount;
-            //logger.log('LOADED ADDRESS');
+            detailLogger.log('LOADED ADDRESS');
             const address = getByIndex(that.addressIndex);
             that.setState({
                 address: address
@@ -73,21 +77,21 @@ class DataMaven extends Component {
         this.setState({
             address: beginningAddress
         });
+        event.preventDefault();
     };//first function setAddress
 
     onAddressButtonClick(event) {
         detailLogger.log('onAddressChange called with', event.target.id);
-        //console.log(this.addressIndex);
         if (event.target.id.startsWith('prev')) {
             if (this.addressIndex > 0) {
                 this.addressIndex -= 1;
-                //console.log(this.addressIndex);
+
             }
 
         } else {
             if (this.addressIndex < this.addressCount - 1) {
                 this.addressIndex += 1;
-                //console.log(this.addressIndex);
+
             }
 
         }
@@ -98,6 +102,7 @@ class DataMaven extends Component {
         this.setState({
             address: address
         });
+        event.preventDefault();
     };
 
     lastAddress(event) {
@@ -105,19 +110,15 @@ class DataMaven extends Component {
         this.addressIndex = addressLength;
 
         const finalAddress = getByIndex(this.addressIndex);
-        //console.log(this.addressIndex);
-        //console.log(finalAddress);
 
         this.setState({
             address: finalAddress
         });
+        event.preventDefault();
     };//end function lastAddress
 
     onAddressFieldChange(event) {
         const updateAddressField = getByIndex(this.addressIndex);
-        //console.log(event.target.value);
-        //console.log(this.addressIndex);
-        //console.log(getByIndex(this.addressIndex));
         console.log(updateAddressField);
         switch (event.target.id) {
             case 'firstName':
